@@ -1,7 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 
-export function useCustomerController() {
+export function CustomerController() {
     const [customerData, setCustomerData] = useState({
         id: "",
         name: "",
@@ -26,7 +26,6 @@ export function useCustomerController() {
             });
     };
 
-    // Return state and functions to be used by components
     return {
         customerData,
         handleChange,

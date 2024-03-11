@@ -1,6 +1,6 @@
 function OrderDetailsView() {
     return <div>
-        <h1>OrderView Management</h1>
+        <h1>OrderDetails Management</h1>
     </div>
 }
 

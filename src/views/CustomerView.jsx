@@ -1,8 +1,8 @@
 import {Container, Form, Button} from 'react-bootstrap';
-import {useCustomerController} from '../controllers/CustomerController';
+import {CustomerController} from '../controllers/CustomerController';
 
 function CustomerView() {
-    const {customerData, handleChange, updateCustomer} = useCustomerController();
+    const {customerData, handleChange, updateCustomer} = CustomerController();
     return (
         <Container>
             <h1 className="m-4">Customer Management</h1>
