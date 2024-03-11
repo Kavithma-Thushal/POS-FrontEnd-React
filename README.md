@@ -1,1 +1,1 @@
-# pos_frontend_react
+# POS-Frontend-React
