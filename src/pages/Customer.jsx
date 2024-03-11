@@ -1,6 +1,6 @@
+import axios from 'axios';
 import React, {useState} from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
-import axios from 'axios';
 
 function Customer() {
     const [customerData, setCustomerData] = useState({
@@ -20,10 +20,10 @@ function Customer() {
     const updateCustomer = () => {
         axios.put('http://localhost:8080/javaee_pos/customer', customerData)
             .then((resp) => {
-                console.log("Customer Updated Successfully...!");
+                alert("Customer Updated Successfully...!");
             })
             .catch((error) => {
-                console.log("Customer Updated Error...!");
+                alert("Customer Updated Error...!");
             });
     };
 
