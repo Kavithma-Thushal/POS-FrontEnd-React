@@ -4,7 +4,7 @@ import Customer from "./pages/Customer";
 import Item from "./pages/Item";
 import Orders from "./pages/Orders";
 import OrderView from "./pages/OrderView";
-import NavBar from "./components/Navigation/NavBar";
+import NavBar from "./components/NavBar";
 
 function App() {
     return (
