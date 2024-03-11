@@ -1,28 +1,42 @@
-import axios from "axios";
-import React from "react";
+import React, {useState} from 'react';
+import axios from 'axios';
 
 function Customer() {
-    const saveCustomer = () => {
-        let formData = new FormData(document.getElementById('customerForm'));
+    const [customerData, setCustomerData] = useState({
+        id: "",
+        name: "",
+        address: "",
+        salary: ""
+    });
 
-        axios.post('http://localhost:8080/javaee_pos/customer', formData)
+    const handleChange = (e) => {
+        setCustomerData({
+            ...customerData,
+            [e.target.id]: e.target.value
+        });
+    };
+
+    const updateCustomer = () => {
+        axios.put('http://localhost:8080/javaee_pos/customer', customerData)
             .then((resp) => {
-                console.log("Customer Saved Successfully...!");
+                console.log("Customer Updated Successfully...!");
             })
             .catch((error) => {
-                console.log("Customer Saved Error...!");
+                console.log("Customer Update Error...!");
             });
     };
 
     return (
         <div>
             <h1>Customer Management</h1>
-            <form id="customerForm">
-                <input placeholder="Customer Id"/><br/>
-                <input placeholder="Customer Name"/><br/>
-                <input placeholder="Customer Address"/><br/>
-                <input placeholder="Customer Salary"/><br/>
-                <button id="btnSaveCustomer" onClick={saveCustomer}>Save</button>
+            <form>
+                <input id="id" placeholder="Customer ID" value={customerData.id} onChange={handleChange}/><br/>
+                <input id="name" placeholder="Customer Name" value={customerData.name} onChange={handleChange}/><br/>
+                <input id="address" placeholder="Customer Address" value={customerData.address}
+                       onChange={handleChange}/><br/>
+                <input id="salary" placeholder="Customer Salary" value={customerData.salary}
+                       onChange={handleChange}/><br/>
+                <button id="btnUpdateCustomer" type="button" onClick={updateCustomer}>Update</button>
             </form>
         </div>
     );
