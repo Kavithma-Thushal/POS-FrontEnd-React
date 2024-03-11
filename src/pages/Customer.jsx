@@ -1,32 +1,8 @@
-import axios from 'axios';
-import React, {useState} from 'react';
 import {Container, Form, Button} from 'react-bootstrap';
+import {useCustomerController} from '../controllers/CustomerController';
 
 function Customer() {
-    const [customerData, setCustomerData] = useState({
-        id: "",
-        name: "",
-        address: "",
-        salary: ""
-    });
-
-    const handleChange = (e) => {
-        setCustomerData({
-            ...customerData,
-            [e.target.id]: e.target.value
-        });
-    };
-
-    const updateCustomer = () => {
-        axios.put('http://localhost:8080/javaee_pos/customer', customerData)
-            .then((resp) => {
-                alert("Customer Updated Successfully...!");
-            })
-            .catch((error) => {
-                alert("Customer Updated Error...!");
-            });
-    };
-
+    const {customerData, handleChange, updateCustomer} = useCustomerController();
     return (
         <Container>
             <h1 className="m-4">Customer Management</h1>
