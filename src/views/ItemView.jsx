@@ -1,7 +1,7 @@
-function Item() {
+function ItemView() {
     return <div>
         <h1>Item Management</h1>
     </div>
 }
 
-export default Item;
+export default ItemView;

@@ -1,7 +1,7 @@
-function Home() {
+function HomeView() {
     return <div>
         <h1>Home Management</h1>
     </div>
 }
 
-export default Home;
+export default HomeView;

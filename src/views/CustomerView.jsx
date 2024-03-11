@@ -1,7 +1,7 @@
 import {Container, Form, Button} from 'react-bootstrap';
 import {useCustomerController} from '../controllers/CustomerController';
 
-function Customer() {
+function CustomerView() {
     const {customerData, handleChange, updateCustomer} = useCustomerController();
     return (
         <Container>
@@ -35,4 +35,4 @@ function Customer() {
     );
 }
 
-export default Customer;
+export default CustomerView;

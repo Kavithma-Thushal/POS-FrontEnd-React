@@ -1,7 +1,7 @@
-function Orders() {
+function OrdersView() {
     return <div>
         <h1>Order Management</h1>
     </div>
 }
 
-export default Orders;
+export default OrdersView;

@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function BasicExample() {
+function Navigation() {
     return (
         <Navbar expand="lg" className="bg-dark navbar-dark">
             <Container>
@@ -14,7 +14,7 @@ function BasicExample() {
                         <Nav.Link href="/customer">Customers</Nav.Link>
                         <Nav.Link href="/item">Items</Nav.Link>
                         <Nav.Link href="/orders">Orders</Nav.Link>
-                        <Nav.Link href="/orderview">OrderViews</Nav.Link>
+                        <Nav.Link href="/orderview">OrderDetails</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
@@ -22,4 +22,4 @@ function BasicExample() {
     );
 }
 
-export default BasicExample;
+export default Navigation;
