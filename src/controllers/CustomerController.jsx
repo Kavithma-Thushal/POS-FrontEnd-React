@@ -19,10 +19,10 @@ export function CustomerController() {
     const updateCustomer = () => {
         axios.put('http://localhost:8080/javaee_pos/customer', customerData)
             .then((resp) => {
-                alert("CustomerView Updated Successfully...!");
+                alert("Customer Updated Successfully...!");
             })
             .catch((error) => {
-                alert("CustomerView Updated Error...!");
+                alert("Customer Updated Error...!");
             });
     };
 
