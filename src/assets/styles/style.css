@@ -4,6 +4,26 @@
 }
 
 .navBrand {
-    color: aqua;
+    color: #61dafb;
     font-size: 25px;
+}
+
+.navLogo {
+    height: 7vmin;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .navLogo {
+        animation: navLogoSpin infinite 20s linear;
+    }
+}
+
+@keyframes navLogoSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

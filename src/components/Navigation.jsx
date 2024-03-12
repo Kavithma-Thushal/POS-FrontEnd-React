@@ -1,10 +1,13 @@
 import { Container, Navbar, Nav } from 'react-bootstrap'
+import '../assets/styles/style.css';
+import logo from '../assets/images/logo.svg';
 
 function Navigation() {
     return (
         <Navbar expand="lg" className="bg-dark navbar-dark">
             <Container>
                 <Navbar.Brand href="#home">
+                    <img src={logo} className='navLogo' />
                     <span className='navBrand'>React</span> | POS
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
