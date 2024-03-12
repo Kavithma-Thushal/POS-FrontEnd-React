@@ -19,6 +19,12 @@ export function CustomerController() {
         axios.put('http://localhost:8080/javaee_pos/customer', customerData)
             .then((resp) => {
                 alert("Customer Updated Successfully...!");
+                setCustomerData({
+                    id: "",
+                    name: "",
+                    address: "",
+                    salary: ""
+                });
             })
             .catch((error) => {
                 alert("Customer Updated Error...!");
