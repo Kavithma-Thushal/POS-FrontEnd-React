@@ -7,8 +7,8 @@ function Navigation() {
         <Navbar expand="lg" className="bg-dark navbar-dark">
             <Container>
                 <Navbar.Brand href="#home">
-                    <img src={logo} className='navLogo' />
-                    <span className='navBrand'>React</span> | POS
+                    <img src={logo} className='nav-logo' />
+                    <span className='nav-brand'>React</span> | POS
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

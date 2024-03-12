@@ -3,22 +3,39 @@
     border-radius: 8px;
 }
 
-.navBrand {
+.dash-tile-icon {
+    font-size: 4.5em;
+}
+
+.card-header {
+    color: white !important;
+}
+
+.table-cursor tbody tr {
+    cursor: pointer;
+}
+
+.control-error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.nav-brand {
     color: #61dafb;
     font-size: 25px;
 }
 
-.navLogo {
+.nav-logo {
     height: 7vmin;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .navLogo {
-        animation: navLogoSpin infinite 20s linear;
+    .nav-logo {
+        animation: nav-logo-spin infinite 20s linear;
     }
 }
 
-@keyframes navLogoSpin {
+@keyframes nav-logo-spin {
     from {
         transform: rotate(0deg);
     }
