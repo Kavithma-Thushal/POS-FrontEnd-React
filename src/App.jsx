@@ -1,4 +1,4 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomeView from "./views/HomeView";
 import CustomerView from "./views/CustomerView";
 import ItemView from "./views/ItemView";
@@ -10,13 +10,13 @@ function App() {
     return (
         <div>
             <BrowserRouter>
-                <Navigation/>
+                <Navigation />
                 <Routes>
-                    <Route path="/home" element={<HomeView/>}/>
-                    <Route path="/customer" element={<CustomerView/>}/>
-                    <Route path="/item" element={<ItemView/>}/>
-                    <Route path="/orders" element={<OrdersView/>}/>
-                    <Route path="/orderview" element={<OrderDetailsView/>}/>
+                    <Route path="/home" element={<HomeView />} />
+                    <Route path="/customer" element={<CustomerView />} />
+                    <Route path="/item" element={<ItemView />} />
+                    <Route path="/orders" element={<OrdersView />} />
+                    <Route path="/orderview" element={<OrderDetailsView />} />
                 </Routes>
             </BrowserRouter>
         </div>
