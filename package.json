@@ -1,6 +1,10 @@
 {
   "name": "pos_frontend_react",
   "version": "3.0.0",
+  "description": "My 1st POS FrontEnd using React",
+  "author": "Kavithma Thushal",
+  "license": "MIT",
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^6.4.2",
