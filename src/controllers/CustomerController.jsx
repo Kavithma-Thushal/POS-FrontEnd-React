@@ -11,8 +11,7 @@ export function CustomerController() {
 
     const handleChange = (e) => {
         setCustomerData({
-            ...customerData,
-            [e.target.id]: e.target.value
+            ...customerData, [e.target.id]: e.target.value
         });
     };
 
