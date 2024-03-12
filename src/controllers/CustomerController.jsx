@@ -16,7 +16,7 @@ export function CustomerController() {
     };
 
     const updateCustomer = () => {
-        axios.put('http://localhost:8080/javaee_pos/customer', customerData)
+        axios.put('http://localhost:8080/spring_pos/customer', customerData)
             .then((resp) => {
                 alert("Customer Updated Successfully...!");
                 setCustomerData({
