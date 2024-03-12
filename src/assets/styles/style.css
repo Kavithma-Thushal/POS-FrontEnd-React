@@ -2,3 +2,8 @@
     box-shadow: rgba(0, 0, 0, 0.4) 0 0px 7px;
     border-radius: 8px;
 }
+
+.navBrand {
+    color: aqua;
+    font-size: 25px;
+}
