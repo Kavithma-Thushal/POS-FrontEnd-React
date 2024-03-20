@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const baseUrl = "http://localhost:8080/spring_pos/";
@@ -9,6 +9,7 @@ export function HomeController() {
     const [orderCount, setOrderCount] = useState(0);
 
     useEffect(() => {
+        
         // Fetch customer count
         axios.get(baseUrl + "customer/CustomerCount")
             .then(response => {
@@ -35,7 +36,7 @@ export function HomeController() {
             .catch(error => {
                 console.log("Orders Count Error: ", error);
             });
-    }, []); // Empty dependency array to run only once on component mount
+    });
 
     return {
         customerCount,
