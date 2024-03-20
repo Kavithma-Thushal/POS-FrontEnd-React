@@ -33,9 +33,26 @@ export function CustomerController() {
             });
     };
 
+    const deleteCustomer = () => {
+        axios.delete(baseUrl + 'customer/' + customerData.id)
+            .then((resp) => {
+                alert("Customer Deleted Successfully...!");
+                setCustomerData({
+                    id: "",
+                    name: "",
+                    address: "",
+                    salary: ""
+                });
+            })
+            .catch((error) => {
+                alert("Customer Deleted Error...!");
+            });
+    };
+
     return {
         customerData,
         handleChange,
-        updateCustomer
+        updateCustomer,
+        deleteCustomer
     };
 }
