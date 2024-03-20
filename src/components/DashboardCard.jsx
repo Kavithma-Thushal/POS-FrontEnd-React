@@ -1,7 +1,7 @@
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
-function DashboardCard({ header, icon, count, buttonText, onClick }) {
+function DashboardCard({ header, icon, count }) {
     return (
         <Card className="sectionBorder">
             <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>{header}</Card.Header>
