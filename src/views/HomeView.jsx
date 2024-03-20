@@ -1,4 +1,4 @@
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 import { HomeController } from '../controllers/HomeController';
 
 function HomeView() {

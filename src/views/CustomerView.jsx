@@ -1,6 +1,4 @@
 import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
-import '../assets/styles/style.css';
-import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
     return (
