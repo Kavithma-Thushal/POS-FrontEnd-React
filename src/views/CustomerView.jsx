@@ -1,6 +1,8 @@
 import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
+import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
+    const { customerData, handleChange, updateCustomer } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -25,29 +27,33 @@ function CustomerView() {
                     {/* Customer Form */}
                     <Col xs={10} md={5} lg={4} className="p-0 mt-5 mb-4 sectionBorder" style={{ backgroundColor: 'white' }}>
                         <Form id="customerForm">
-                            <Form.Group className="mb-3 ms-3 me-3 mt-3">
-                                <Form.Label className="fw-bold" htmlFor="txtCusId">Customer ID</Form.Label>
-                                <Form.Control className="form-control" id="txtCusId" type="text" name="id" />
+                            <Form.Group className="m-3" controlId="id">
+                                <Form.Label className="fw-bold">Customer ID</Form.Label>
+                                <Form.Control className="form-control" type="text" value={customerData.id}
+                                    onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
-                            <Form.Group className="mb-3 ms-3 me-3 mt-3">
-                                <Form.Label className="fw-bold" htmlFor="txtCusName">Customer Name</Form.Label>
-                                <Form.Control className="form-control" id="txtCusName" type="text" name="name" />
+                            <Form.Group className="m-3" controlId="name">
+                                <Form.Label className="fw-bold">Customer Name</Form.Label>
+                                <Form.Control className="form-control" type="text" value={customerData.name}
+                                    onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
-                            <Form.Group className="mb-3 ms-3 me-3 mt-3">
-                                <Form.Label className="fw-bold" htmlFor="txtCusAddress">Customer Address</Form.Label>
-                                <Form.Control className="form-control" id="txtCusAddress" type="text" name="address" />
+                            <Form.Group className="m-3" controlId="address">
+                                <Form.Label className="fw-bold">Customer Address</Form.Label>
+                                <Form.Control className="form-control" type="text" value={customerData.address}
+                                    onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
-                            <Form.Group className="mb-3 ms-3 me-3 mt-3">
-                                <Form.Label className="fw-bold" htmlFor="txtCusSalary">Customer Salary</Form.Label>
-                                <Form.Control className="form-control" id="txtCusSalary" type="text" name="salary" />
+                            <Form.Group className="m-3" controlId="salary">
+                                <Form.Label className="fw-bold">Customer Salary</Form.Label>
+                                <Form.Control className="form-control" type="text" value={customerData.salary}
+                                    onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <div className="m-4 text-center">
                                 <Button variant="primary" className="mt-2 m-2 w-25" id="btnSaveCustomer" type="button">Save</Button>
-                                <Button variant="warning" className="mt-2 m-2 w-25" id="btnUpdateCustomer" type="button">Update</Button>
+                                <Button variant="warning" className="mt-2 m-2 w-25" id="btnUpdateCustomer" type="button" onClick={updateCustomer}>Update</Button>
                                 <Button variant="danger" className="mt-2 m-2 w-25" id="btnDeleteCustomer" type="button">Delete</Button>
                                 <Button variant="secondary" className="mt-2 m-2 w-25" id="btnClearAllCustomer" type="button">Clear All</Button>
                             </div>
