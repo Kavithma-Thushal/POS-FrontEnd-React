@@ -1,5 +1,6 @@
 import { Row, Col, Card, Button } from 'react-bootstrap';
 import { HomeController } from '../controllers/HomeController';
+import DashboardCard from '../components/DashboardCard';
 
 function HomeView() {
     const { customerCount, itemCount, orderCount } = HomeController();
@@ -9,42 +10,16 @@ function HomeView() {
                 <div id="home-tiles">
                     <Row>
                         <Col lg={6} xl={3} mb={2}>
-                            <Card className="sectionBorder">
-                                <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>Customers</Card.Header>
-                                <Card.Body className="d-flex justify-content-around align-items-center">
-                                    <div className="dash-tile-icon me-2"><i className="bi bi-people-fill"></i></div>
-                                    <div className="dash-tile-text text-black-50"><h1 id="txtCustomerCount">{customerCount}</h1></div>
-                                </Card.Body>
-                            </Card>
+                            <DashboardCard header="Customers" icon="bi-people-fill" count={customerCount} />
                         </Col>
                         <Col lg={6} xl={3} mb={2}>
-                            <Card className="sectionBorder">
-                                <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>Items</Card.Header>
-                                <Card.Body className="d-flex justify-content-around align-items-center">
-                                    <div className="dash-tile-icon"><i className="bi bi-boxes"></i></div>
-                                    <div className="dash-tile-text text-black-50"><h1 id="txtItemsCount">{itemCount}</h1></div>
-                                </Card.Body>
-                            </Card>
+                            <DashboardCard header="Items" icon="bi-boxes" count={itemCount} />
                         </Col>
                         <Col lg={6} xl={3} mb={2}>
-                            <Card className="sectionBorder">
-                                <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>Orders</Card.Header>
-                                <Card.Body className="d-flex justify-content-around align-items-center">
-                                    <div className="dash-tile-icon"><i className="bi bi-cart-fill"></i></div>
-                                    <div className="dash-tile-text text-black-50"><h1 id="txtOrderCount">{orderCount}</h1></div>
-                                </Card.Body>
-                            </Card>
+                            <DashboardCard header="Orders" icon="bi-cart-fill" count={orderCount} />
                         </Col>
                         <Col lg={6} xl={3} mb={2}>
-                            <Card className="sectionBorder">
-                                <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>Settings</Card.Header>
-                                <Card.Body className="d-flex justify-content-around align-items-center">
-                                    <div className="dash-tile-icon"><i className="bi bi-gear-wide-connected"></i></div>
-                                    <div>
-                                        <Button variant="danger">New</Button>
-                                    </div>
-                                </Card.Body>
-                            </Card>
+                            <DashboardCard header="Settings" icon="bi-gear-wide-connected" count={<Button variant="danger">New</Button>} />
                         </Col>
                     </Row>
                 </div>
