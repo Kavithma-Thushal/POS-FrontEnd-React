@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+let baseUrl = "http://localhost:8080/spring_pos/";
+
 export function CustomerController() {
     const [customerData, setCustomerData] = useState({
         id: "",
@@ -16,7 +18,7 @@ export function CustomerController() {
     };
 
     const updateCustomer = () => {
-        axios.put('http://localhost:8080/spring_pos/customer', customerData)
+        axios.put(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Updated Successfully...!");
                 setCustomerData({
