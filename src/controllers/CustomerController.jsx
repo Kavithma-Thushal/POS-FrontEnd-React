@@ -5,7 +5,8 @@ let baseUrl = "http://localhost:8080/spring_pos/";
 
 export function CustomerController() {
 
-    const [customerData, setCustomerData] = useState({});
+    const [customerData, setCustomerData] = useState('');
+    const [searchCusId, setSearchCusId] = useState('');
 
     const handleChange = (e) => {
         setCustomerData({ ...customerData, [e.target.id]: e.target.value });
@@ -41,11 +42,25 @@ export function CustomerController() {
             });
     };
 
+    const searchCustomer = () => {
+        axios.get(baseUrl + `customer/searchCusId?id=${searchCusId}`)
+            .then((resp) => {
+                alert("Customer Searched Successfully...!");
+                console.log(resp.data);
+            })
+            .catch((error) => {
+                alert("Customer Searched Error...!");
+            });
+    };
+
     return {
         customerData,
         handleChange,
         saveCustomer,
         updateCustomer,
-        deleteCustomer
+        deleteCustomer,
+        searchCusId,
+        setSearchCusId,
+        searchCustomer
     };
 }

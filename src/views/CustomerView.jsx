@@ -2,7 +2,7 @@ import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer } = CustomerController();
+    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusId, setSearchCusId, searchCustomer } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -17,8 +17,8 @@ function CustomerView() {
                         <Row className="mb-3 ms-3 me-3 mt-3">
                             <Form.Label className="fw-bold">Search Customer</Form.Label>
                             <div className="input-group">
-                                <Form.Control className="me-3 mt-2 rounded-2 w-50" id="txtSearchCusId" type="search" placeholder="Input Customer ID" />
-                                <Button variant="secondary" className="mt-2 rounded-2 w-25" id="btnSearchCustomer" type="button">Search</Button>
+                                <Form.Control className="me-3 mt-2 rounded-2 w-50" id="txtSearchCusId" type="search" placeholder="Input Customer ID" value={searchCusId} onChange={(e) => setSearchCusId(e.target.value)} />
+                                <Button variant="secondary" className="mt-2 rounded-2 w-25" id="btnSearchCustomer" type="button" onClick={searchCustomer}>Search</Button>
                             </div>
                             <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" id="btnGetAllCustomers" type="button">Get All</Button>
                         </Row>
@@ -29,22 +29,22 @@ function CustomerView() {
                         <Form id="customerForm">
                             <Form.Group className="m-3" controlId="id">
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
-                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.id} />
+                                <Form.Control className="form-control" type="text" value={customerData.id} onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="name">
                                 <Form.Label className="fw-bold">Customer Name</Form.Label>
-                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.name} />
+                                <Form.Control className="form-control" type="text" value={customerData.name} onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="address">
                                 <Form.Label className="fw-bold">Customer Address</Form.Label>
-                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.address} />
+                                <Form.Control className="form-control" type="text" value={customerData.address} onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="salary">
                                 <Form.Label className="fw-bold">Customer Salary</Form.Label>
-                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.salary} />
+                                <Form.Control className="form-control" type="text" value={customerData.salary} onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <div className="m-4 text-center">
