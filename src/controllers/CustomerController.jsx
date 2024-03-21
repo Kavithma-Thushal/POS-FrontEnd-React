@@ -5,12 +5,7 @@ let baseUrl = "http://localhost:8080/spring_pos/";
 
 export function CustomerController() {
 
-    const [customerData, setCustomerData] = useState({
-        id: "",
-        name: "",
-        address: "",
-        salary: ""
-    });
+    const [customerData, setCustomerData] = useState({});
 
     const handleChange = (e) => {
         setCustomerData({ ...customerData, [e.target.id]: e.target.value });
