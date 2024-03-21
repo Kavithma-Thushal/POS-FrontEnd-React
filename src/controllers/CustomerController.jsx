@@ -4,6 +4,7 @@ import axios from "axios";
 let baseUrl = "http://localhost:8080/spring_pos/";
 
 export function CustomerController() {
+
     const [customerData, setCustomerData] = useState({
         id: "",
         name: "",
@@ -12,21 +13,13 @@ export function CustomerController() {
     });
 
     const handleChange = (e) => {
-        setCustomerData({
-            ...customerData, [e.target.id]: e.target.value
-        });
+        setCustomerData({ ...customerData, [e.target.id]: e.target.value });
     };
 
     const saveCustomer = () => {
         axios.post(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Saved Successfully...!");
-                setCustomerData({
-                    id: "",
-                    name: "",
-                    address: "",
-                    salary: ""
-                });
             })
             .catch((error) => {
                 alert("Customer Saved Error...!");
@@ -37,12 +30,6 @@ export function CustomerController() {
         axios.put(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Updated Successfully...!");
-                setCustomerData({
-                    id: "",
-                    name: "",
-                    address: "",
-                    salary: ""
-                });
             })
             .catch((error) => {
                 alert("Customer Updated Error...!");
@@ -53,12 +40,6 @@ export function CustomerController() {
         axios.delete(baseUrl + 'customer/' + customerData.id)
             .then((resp) => {
                 alert("Customer Deleted Successfully...!");
-                setCustomerData({
-                    id: "",
-                    name: "",
-                    address: "",
-                    salary: ""
-                });
             })
             .catch((error) => {
                 alert("Customer Deleted Error...!");
