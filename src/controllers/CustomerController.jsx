@@ -18,12 +18,7 @@ export function CustomerController() {
     };
 
     const saveCustomer = () => {
-        axios.post(baseUrl + 'customer', {
-            id: customerData.id,
-            name: customerData.name,
-            address: customerData.address,
-            salary: customerData.salary
-        })
+        axios.post(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Saved Successfully...!");
                 setCustomerData({
