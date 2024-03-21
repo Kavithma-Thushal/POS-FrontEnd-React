@@ -29,26 +29,22 @@ function CustomerView() {
                         <Form id="customerForm">
                             <Form.Group className="m-3" controlId="id">
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
-                                <Form.Control className="form-control" type="text" value={customerData.id}
-                                    onChange={handleChange} />
+                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.id} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="name">
                                 <Form.Label className="fw-bold">Customer Name</Form.Label>
-                                <Form.Control className="form-control" type="text" value={customerData.name}
-                                    onChange={handleChange} />
+                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.name} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="address">
                                 <Form.Label className="fw-bold">Customer Address</Form.Label>
-                                <Form.Control className="form-control" type="text" value={customerData.address}
-                                    onChange={handleChange} />
+                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.address} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="salary">
                                 <Form.Label className="fw-bold">Customer Salary</Form.Label>
-                                <Form.Control className="form-control" type="text" value={customerData.salary}
-                                    onChange={handleChange} />
+                                <Form.Control className="form-control" type="text" onChange={handleChange} value={customerData.salary} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <div className="m-4 text-center">
