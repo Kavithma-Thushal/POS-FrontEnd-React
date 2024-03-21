@@ -17,6 +17,27 @@ export function CustomerController() {
         });
     };
 
+    const saveCustomer = () => {
+        axios.post(baseUrl + 'customer', {
+            id: customerData.id,
+            name: customerData.name,
+            address: customerData.address,
+            salary: customerData.salary
+        })
+            .then((resp) => {
+                alert("Customer Saved Successfully...!");
+                setCustomerData({
+                    id: "",
+                    name: "",
+                    address: "",
+                    salary: ""
+                });
+            })
+            .catch((error) => {
+                alert("Customer Saved Error...!");
+            });
+    };
+
     const updateCustomer = () => {
         axios.put(baseUrl + 'customer', customerData)
             .then((resp) => {
@@ -52,6 +73,7 @@ export function CustomerController() {
     return {
         customerData,
         handleChange,
+        saveCustomer,
         updateCustomer,
         deleteCustomer
     };
