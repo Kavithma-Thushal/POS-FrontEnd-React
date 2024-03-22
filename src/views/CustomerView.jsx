@@ -2,7 +2,7 @@ import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, allCustomers, loadAllCustomers } = CustomerController();
+    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, allCustomers, loadAllCustomers, generateCustomerId } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -51,7 +51,7 @@ function CustomerView() {
                                 <Button variant="primary" className="mt-2 m-2 w-25" id="btnSaveCustomer" type="button" onClick={saveCustomer}>Save</Button>
                                 <Button variant="warning" className="mt-2 m-2 w-25" id="btnUpdateCustomer" type="button" onClick={updateCustomer}>Update</Button>
                                 <Button variant="danger" className="mt-2 m-2 w-25" id="btnDeleteCustomer" type="button" onClick={deleteCustomer}>Delete</Button>
-                                <Button variant="secondary" className="mt-2 m-2 w-25" id="btnClearAllCustomer" type="button">Clear All</Button>
+                                <Button variant="secondary" className="mt-2 m-2 w-25" id="btnClearAllCustomer" type="button" onClick={generateCustomerId}>Clear All</Button>
                             </div>
                         </Form>
                     </Col>

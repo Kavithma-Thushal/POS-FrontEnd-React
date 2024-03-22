@@ -63,6 +63,17 @@ export function CustomerController() {
             });
     };
 
+    const generateCustomerId = () => {
+        axios.get(baseUrl + 'customer/generateCustomerId')
+            .then((resp) => {
+                alert("Customer ID Generated Successfully...!");
+                console.log(resp.data.value);
+            })
+            .catch((error) => {
+                alert("Customer ID Generated Error...!");
+            });
+    };
+
     return {
         customerData,
         handleChange,
@@ -75,6 +86,8 @@ export function CustomerController() {
         searchCustomer,
 
         allCustomers,
-        loadAllCustomers
+        loadAllCustomers,
+
+        generateCustomerId
     };
 }
