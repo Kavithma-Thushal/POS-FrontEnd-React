@@ -66,11 +66,11 @@ export function CustomerController() {
     const generateCustomerId = () => {
         axios.get(baseUrl + 'customer/generateCustomerId')
             .then((resp) => {
-                alert("Customer ID Generated Successfully...!");
+                alert("Customer Id Generated Successfully...!");
                 console.log(resp.data.value);
             })
             .catch((error) => {
-                alert("Customer ID Generated Error...!");
+                alert("Customer Id Generated Error...!");
             });
     };
 
