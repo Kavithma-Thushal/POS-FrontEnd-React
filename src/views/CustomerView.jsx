@@ -2,7 +2,7 @@ import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, loadAllCustomers } = CustomerController();
+    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, allCustomers, loadAllCustomers } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -70,7 +70,16 @@ function CustomerView() {
                                         <th className="w-25">Customer Salary</th>
                                     </tr>
                                 </thead>
-                                <tbody id="customerTable"></tbody>
+                                <tbody>
+                                    {allCustomers.map(customer => (
+                                        <tr key={customer.id}>
+                                            <td>{customer.id}</td>
+                                            <td>{customer.name}</td>
+                                            <td>{customer.address}</td>
+                                            <td>{customer.salary}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </Table>
                         </div>
                     </Col>

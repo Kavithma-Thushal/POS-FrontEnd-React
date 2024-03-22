@@ -7,6 +7,7 @@ export function CustomerController() {
 
     const [customerData, setCustomerData] = useState('');
     const [searchCusById, setSearchCusById] = useState('');
+    const [allCustomers, setAllCustomers] = useState([]);
 
     const handleChange = (e) => {
         setCustomerData({ ...customerData, [e.target.id]: e.target.value });
@@ -55,7 +56,7 @@ export function CustomerController() {
     const loadAllCustomers = () => {
         axios.get(baseUrl + 'customer/loadAllCustomers')
             .then((resp) => {
-                alert(JSON.stringify(resp.data.data));
+                setAllCustomers(resp.data.data);
             })
             .catch((error) => {
                 alert("Customers Loaded Error...!");
@@ -73,6 +74,7 @@ export function CustomerController() {
         setSearchCusById,
         searchCustomer,
 
+        allCustomers,
         loadAllCustomers
     };
 }
