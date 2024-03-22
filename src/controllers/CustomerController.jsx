@@ -45,8 +45,7 @@ export function CustomerController() {
     const searchCustomer = () => {
         axios.get(baseUrl + 'customer/searchCustomer/' + searchCusById)
             .then((resp) => {
-                alert("Customer Searched Successfully...!");
-                console.log(resp.data);
+                alert(resp.data.id + " - " + resp.data.name + " - " + resp.data.address + " - " + resp.data.salary);
             })
             .catch((error) => {
                 alert("Customer Searched Error...!");
