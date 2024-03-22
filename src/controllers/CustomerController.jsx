@@ -52,6 +52,16 @@ export function CustomerController() {
             });
     };
 
+    const loadAllCustomers = () => {
+        axios.get(baseUrl + 'customer/loadAllCustomers')
+            .then((resp) => {
+                alert(JSON.stringify(resp.data.data));
+            })
+            .catch((error) => {
+                alert("Customers Loaded Error...!");
+            });
+    };
+
     return {
         customerData,
         handleChange,
@@ -61,6 +71,8 @@ export function CustomerController() {
 
         searchCusById,
         setSearchCusById,
-        searchCustomer
+        searchCustomer,
+
+        loadAllCustomers
     };
 }

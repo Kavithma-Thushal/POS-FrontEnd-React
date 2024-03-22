@@ -2,7 +2,7 @@ import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 function CustomerView() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer } = CustomerController();
+    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, loadAllCustomers } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -20,7 +20,7 @@ function CustomerView() {
                                 <Form.Control className="me-3 mt-2 rounded-2 w-50" id="txtSearchCusId" type="search" placeholder="Input Customer ID" value={searchCusById} onChange={(e) => setSearchCusById(e.target.value)} />
                                 <Button variant="secondary" className="mt-2 rounded-2 w-25" id="btnSearchCustomer" type="button" onClick={searchCustomer}>Search</Button>
                             </div>
-                            <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" id="btnGetAllCustomers" type="button">Get All</Button>
+                            <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" id="btnGetAllCustomers" type="button" onClick={loadAllCustomers}>Get All</Button>
                         </Row>
                     </Col>
 
