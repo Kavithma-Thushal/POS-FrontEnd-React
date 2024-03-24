@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomeView from "./UI/HomeUI";
-import CustomerView from "./UI/CustomerUI";
-import ItemView from "./UI/ItemUI";
-import OrdersView from "./UI/OrdersUI";
-import OrderDetailsView from "./UI/OrderDetailsUI";
+import HomeUI from "./UI/HomeUI";
+import CustomerUI from "./UI/CustomerUI";
+import ItemUI from "./UI/ItemUI";
+import OrdersUI from "./UI/OrdersUI";
+import OrderDetailsUI from "./UI/OrderDetailsUI";
 import Navigation from "./components/Navigation";
 
 export default function App() {
@@ -11,11 +11,11 @@ export default function App() {
         <BrowserRouter>
             <Navigation />
             <Routes>
-                <Route path="/home" element={<HomeView />} />
-                <Route path="/customers" element={<CustomerView />} />
-                <Route path="/items" element={<ItemView />} />
-                <Route path="/orders" element={<OrdersView />} />
-                <Route path="/orderdetails" element={<OrderDetailsView />} />
+                <Route path="/home" element={<HomeUI />} />
+                <Route path="/customers" element={<CustomerUI />} />
+                <Route path="/items" element={<ItemUI />} />
+                <Route path="/orders" element={<OrdersUI />} />
+                <Route path="/orderdetails" element={<OrderDetailsUI />} />
             </Routes>
         </BrowserRouter>
     );
