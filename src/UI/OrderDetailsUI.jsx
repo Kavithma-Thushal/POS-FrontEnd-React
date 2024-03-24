@@ -1,6 +1,6 @@
 import { Container, Table, Row, Col } from 'react-bootstrap';
 
-function OrderDetailsView() {
+export default function OrderDetailsView() {
     return (
         <main className="container-fluid" id="OrderDetails">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -50,5 +50,3 @@ function OrderDetailsView() {
         </main>
     );
 }
-
-export default OrderDetailsView;

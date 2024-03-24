@@ -1,7 +1,6 @@
-import React from 'react';
 import { Card } from 'react-bootstrap';
 
-function DashboardCard({ header, icon, count }) {
+export default function DashboardCard({ header, icon, count }) {
     return (
         <Card className="sectionBorder">
             <Card.Header className="font-weight-bolder" style={{ backgroundColor: 'dodgerblue' }}>{header}</Card.Header>
@@ -12,5 +11,3 @@ function DashboardCard({ header, icon, count }) {
         </Card>
     );
 }
-
-export default DashboardCard;

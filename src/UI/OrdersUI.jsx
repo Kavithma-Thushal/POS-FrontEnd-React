@@ -1,6 +1,6 @@
 import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 
-function OrdersView() {
+export default function OrdersView() {
     return (
         <main className="container-fluid" id="OrderSection">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -140,5 +140,3 @@ function OrdersView() {
         </main>
     );
 }
-
-export default OrdersView;

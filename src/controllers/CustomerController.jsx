@@ -1,11 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 
-let baseUrl = "http://localhost:8080/spring_pos/";
-
 export function CustomerController() {
 
-    const [customerData, setCustomerData] = useState('');
+    let baseUrl = "http://localhost:8080/spring_pos/";
+
+    const [customerData, setCustomerData] = useState({
+        id: '',
+        name: '',
+        address: '',
+        salary: ''
+    });
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
 

@@ -1,7 +1,7 @@
 import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
-function CustomerView() {
+export default function CustomerView() {
     const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, allCustomers, loadAllCustomers, generateCustomerId } = CustomerController();
     return (
         <main className="container-fluid" id="CustomerSection">
@@ -88,5 +88,3 @@ function CustomerView() {
         </main>
     );
 }
-
-export default CustomerView;

@@ -1,8 +1,8 @@
-import { Row, Col, Card, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import { HomeController } from '../controllers/HomeController';
 import DashboardCard from '../components/DashboardCard';
 
-function HomeView() {
+export default function HomeView() {
     const { customerCount, itemCount, orderCount } = HomeController();
     return (
         <main className="container-fluid mt-2" id="HomeSection">
@@ -27,5 +27,3 @@ function HomeView() {
         </main>
     );
 }
-
-export default HomeView;
