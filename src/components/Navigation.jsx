@@ -1,10 +1,10 @@
-import { Container, Navbar, Nav } from 'react-bootstrap'
-import '../assets/styles/style.css';
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/images/logo.svg';
+import '../assets/styles/style.css';
 
-function Navigation() {
+export default function Navigation() {
     return (
-        <Navbar expand="lg" className="bg-dark navbar-dark">
+        <Navbar className="bg-dark navbar-dark" expand="lg">
             <Container>
                 <Navbar.Brand href="#home">
                     <img src={logo} className='nav-logo' />
@@ -24,5 +24,3 @@ function Navigation() {
         </Navbar>
     );
 }
-
-export default Navigation;
