@@ -8,15 +8,18 @@ import Navigation from "./components/Navigation";
 
 export default function App() {
     return (
-        <BrowserRouter>
+        <div>
             <Navigation />
-            <Routes>
-                <Route path="/home" element={<HomeUI />} />
-                <Route path="/customers" element={<CustomerUI />} />
-                <Route path="/items" element={<ItemUI />} />
-                <Route path="/orders" element={<OrdersUI />} />
-                <Route path="/orderdetails" element={<OrderDetailsUI />} />
-            </Routes>
-        </BrowserRouter>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="" element={<HomeUI />} />
+                    <Route path="/home" element={<HomeUI />} />
+                    <Route path="/customers" element={<CustomerUI />} />
+                    <Route path="/items" element={<ItemUI />} />
+                    <Route path="/orders" element={<OrdersUI />} />
+                    <Route path="/orderdetails" element={<OrderDetailsUI />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
     );
 }
