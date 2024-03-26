@@ -13,7 +13,6 @@ export default function CustomerUI() {
             </Container>
             <Container className="d-flex flex-grow-1 flex-column sectionBorder mb-5 mt-2" style={{ backgroundColor: '#f0f0f0' }}>
                 <Row className="justify-content-around" style={{ height: 'max-content' }}>
-
                     {/* Customer Search */}
                     <Col xs={10} md={6} lg={5} className="p-0 mt-5 sectionBorder" style={{ backgroundColor: 'white', height: 'max-content' }}>
                         <Row className="mb-3 ms-3 me-3 mt-3">
@@ -25,7 +24,6 @@ export default function CustomerUI() {
                             <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" type="button" onClick={loadAllCustomers}>Get All</Button>
                         </Row>
                     </Col>
-
                     {/* Customer Form */}
                     <Col xs={10} md={5} lg={4} className="p-0 mt-5 mb-4 sectionBorder" style={{ backgroundColor: 'white' }}>
                         <Form>
@@ -57,7 +55,6 @@ export default function CustomerUI() {
                             </div>
                         </Form>
                     </Col>
-
                 </Row>
                 <Row className="mt-5 mb-5 mt-md-2 mt-lg-4 justify-content-around">
                     {/* Customer Table */}
