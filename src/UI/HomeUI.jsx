@@ -5,7 +5,7 @@ import DashboardCard from '../components/DashboardCard';
 export default function HomeUI() {
     const { customerCount, itemCount, orderCount } = HomeController();
     return (
-        <main className="container-fluid mt-2" id="HomeSection">
+        <main className="container-fluid mt-2">
             <div className="jumbotron mt-5">
                 <div id="home-tiles">
                     <Row>
