@@ -1,26 +1,28 @@
-import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
+import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer, allCustomers, loadAllCustomers, generateCustomerId } = CustomerController();
+    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
+        allCustomers, loadAllCustomers, generateCustomerId } = CustomerController();
     return (
-        <main className="container-fluid" id="CustomerSection">
+        <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
                 <div className="position-relative d-inline-block mt-3 mt-lg-4 mt-md-4">
-                    <h2 id="H1-3"><i className="bi bi-people-fill"></i> Customer Management</h2>
+                    <h2><i className="bi bi-people-fill"></i> Customer Management</h2>
                 </div>
             </Container>
             <Container className="d-flex flex-grow-1 flex-column sectionBorder mb-5 mt-2" style={{ backgroundColor: '#f0f0f0' }}>
                 <Row className="justify-content-around" style={{ height: 'max-content' }}>
+
                     {/* Customer Search */}
                     <Col xs={10} md={6} lg={5} className="p-0 mt-5 sectionBorder" style={{ backgroundColor: 'white', height: 'max-content' }}>
                         <Row className="mb-3 ms-3 me-3 mt-3">
                             <Form.Label className="fw-bold">Search Customer</Form.Label>
                             <div className="input-group">
-                                <Form.Control className="me-3 mt-2 rounded-2 w-50" id="txtSearchCusId" type="search" placeholder="Input Customer ID" value={searchCusById} onChange={(e) => setSearchCusById(e.target.value)} />
-                                <Button variant="secondary" className="mt-2 rounded-2 w-25" id="btnSearchCustomer" type="button" onClick={searchCustomer}>Search</Button>
+                                <Form.Control className="me-3 mt-2 rounded-2 w-50" type="search" placeholder="Input Customer ID" value={searchCusById} onChange={(e) => setSearchCusById(e.target.value)} />
+                                <Button variant="secondary" className="mt-2 rounded-2 w-25" type="button" onClick={searchCustomer}>Search</Button>
                             </div>
-                            <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" id="btnGetAllCustomers" type="button" onClick={loadAllCustomers}>Get All</Button>
+                            <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" type="button" onClick={loadAllCustomers}>Get All</Button>
                         </Row>
                     </Col>
 
@@ -56,7 +58,6 @@ export default function CustomerUI() {
                         </Form>
                     </Col>
                 </Row>
-
                 <Row className="mt-5 mb-5 mt-md-2 mt-lg-4 justify-content-around">
                     {/* Customer Table */}
                     <Col xs={11} className="justify-content-around sectionBorder" style={{ background: 'white' }}>
