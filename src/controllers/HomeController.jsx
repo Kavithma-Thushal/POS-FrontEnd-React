@@ -11,7 +11,7 @@ export function HomeController() {
 
     useEffect(() => {
 
-        axios.get(baseUrl + "customer/CustomerCount")
+        axios.get(baseUrl + "customer/customerCount")
             .then(response => {
                 setCustomerCount(response.data.count);
             })
