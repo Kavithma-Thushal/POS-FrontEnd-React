@@ -28,7 +28,7 @@ export default function CustomerUI() {
 
                     {/* Customer Form */}
                     <Col xs={10} md={5} lg={4} className="p-0 mt-5 mb-4 sectionBorder" style={{ backgroundColor: 'white' }}>
-                        <Form id="customerForm">
+                        <Form>
                             <Form.Group className="m-3" controlId="id">
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
                                 <Form.Control className="form-control" type="text" value={customerData.id} onChange={handleChange} />
@@ -50,13 +50,14 @@ export default function CustomerUI() {
                                 <span className="control-error"></span>
                             </Form.Group>
                             <div className="m-4 text-center">
-                                <Button variant="primary" className="mt-2 m-2 w-25" id="btnSaveCustomer" type="button" onClick={saveCustomer}>Save</Button>
-                                <Button variant="warning" className="mt-2 m-2 w-25" id="btnUpdateCustomer" type="button" onClick={updateCustomer}>Update</Button>
-                                <Button variant="danger" className="mt-2 m-2 w-25" id="btnDeleteCustomer" type="button" onClick={deleteCustomer}>Delete</Button>
-                                <Button variant="secondary" className="mt-2 m-2 w-25" id="btnClearAllCustomer" type="button" onClick={generateCustomerId}>Clear All</Button>
+                                <Button variant="primary" className="mt-2 m-2 w-25" type="button" onClick={saveCustomer}>Save</Button>
+                                <Button variant="warning" className="mt-2 m-2 w-25" type="button" onClick={updateCustomer}>Update</Button>
+                                <Button variant="danger" className="mt-2 m-2 w-25" type="button" onClick={deleteCustomer}>Delete</Button>
+                                <Button variant="secondary" className="mt-2 m-2 w-25" type="button" onClick={generateCustomerId}>Clear All</Button>
                             </div>
                         </Form>
                     </Col>
+
                 </Row>
                 <Row className="mt-5 mb-5 mt-md-2 mt-lg-4 justify-content-around">
                     {/* Customer Table */}
