@@ -1,6 +1,6 @@
 import { Container, Table, Row, Col } from 'react-bootstrap';
 
-export default function OrderDetailsView() {
+export default function OrderDetailsUI() {
     return (
         <main className="container-fluid" id="OrderDetails">
             <Container className="d-flex flex-grow-1 flex-column">
