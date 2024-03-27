@@ -7,7 +7,7 @@ export function CustomerController() {
 
     useEffect(() => {
         loadAllCustomers();
-    });
+    },[]);
 
     const [customerData, setCustomerData] = useState({
         id: '',
