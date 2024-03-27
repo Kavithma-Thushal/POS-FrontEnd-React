@@ -7,7 +7,6 @@ export function CustomerController() {
 
     useEffect(() => {
         loadAllCustomers();
-        tableListener();
     }, []);
 
     const [customerData, setCustomerData] = useState({
