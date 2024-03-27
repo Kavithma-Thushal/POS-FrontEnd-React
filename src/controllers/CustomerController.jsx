@@ -92,6 +92,16 @@ export function CustomerController() {
         setCustomerData({ id, name, address, salary });
     };
 
+    const clearInputFields = () => {
+        setDisableEnable(true);
+        setCustomerData({
+            id: '',
+            name: '',
+            address: '',
+            salary: ''
+        });
+    }
+
     return {
         customerData,
         handleChange,
@@ -108,6 +118,7 @@ export function CustomerController() {
 
         generateCustomerId,
         disableEnable,
-        tableListener
+        tableListener,
+        clearInputFields
     };
 }

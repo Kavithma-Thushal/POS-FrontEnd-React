@@ -3,7 +3,7 @@ import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
     const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
-        allCustomers, loadAllCustomers, generateCustomerId, disableEnable, tableListener } = CustomerController();
+        allCustomers, loadAllCustomers, generateCustomerId, disableEnable, tableListener, clearInputFields } = CustomerController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -49,9 +49,9 @@ export default function CustomerUI() {
                             </Form.Group>
                             <div className="m-4 text-center">
                                 <Button variant="primary" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={saveCustomer}>Save</Button>
-                                <Button variant="warning" className="mt-2 m-2 w-25" type="button" onClick={updateCustomer}>Update</Button>
-                                <Button variant="danger" className="mt-2 m-2 w-25" type="button" onClick={deleteCustomer}>Delete</Button>
-                                <Button variant="secondary" className="mt-2 m-2 w-25" type="button" onClick={generateCustomerId}>Clear All</Button>
+                                <Button variant="warning" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={updateCustomer}>Update</Button>
+                                <Button variant="danger" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={deleteCustomer}>Delete</Button>
+                                <Button variant="secondary" className="mt-2 m-2 w-25" type="button" onClick={clearInputFields}>Clear All</Button>
                             </div>
                         </Form>
                     </Col>
