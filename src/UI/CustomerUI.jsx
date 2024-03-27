@@ -3,7 +3,7 @@ import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
     const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
-        allCustomers, loadAllCustomers, generateCustomerId, disableEnable } = CustomerController();
+        allCustomers, loadAllCustomers, generateCustomerId, disableEnable, tableListener } = CustomerController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -71,7 +71,7 @@ export default function CustomerUI() {
                                 </thead>
                                 <tbody>
                                     {allCustomers.map(customer => (
-                                        <tr key={customer.id}>
+                                        <tr key={customer.id} onClick={() => tableListener(customer.id, customer.name, customer.address, customer.salary)}>
                                             <td>{customer.id}</td>
                                             <td>{customer.name}</td>
                                             <td>{customer.address}</td>

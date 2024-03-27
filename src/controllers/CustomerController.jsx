@@ -7,6 +7,7 @@ export function CustomerController() {
 
     useEffect(() => {
         loadAllCustomers();
+        tableListener();
     }, []);
 
     const [customerData, setCustomerData] = useState({
@@ -88,6 +89,10 @@ export function CustomerController() {
             });
     };
 
+    const tableListener = (id, name, address, salary) => {
+        setCustomerData({ id, name, address, salary });
+    };
+
     return {
         customerData,
         handleChange,
@@ -103,6 +108,7 @@ export function CustomerController() {
         loadAllCustomers,
 
         generateCustomerId,
-        disableEnable
+        disableEnable,
+        tableListener
     };
 }
