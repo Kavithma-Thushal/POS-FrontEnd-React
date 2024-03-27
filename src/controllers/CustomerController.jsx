@@ -7,7 +7,7 @@ export function CustomerController() {
 
     useEffect(() => {
         loadAllCustomers();
-    },[]);
+    }, []);
 
     const [customerData, setCustomerData] = useState({
         id: '',
@@ -17,6 +17,7 @@ export function CustomerController() {
     });
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
+    const [disableEnable, setDisableEnable] = useState(false);
 
     const handleChange = (e) => {
         setCustomerData({ ...customerData, [e.target.id]: e.target.value });
@@ -49,6 +50,7 @@ export function CustomerController() {
             .then((resp) => {
                 alert("Customer Deleted Successfully...!");
                 loadAllCustomers();
+                setDisableEnable(true);
             })
             .catch((error) => {
                 alert("Customer Deleted Error...!");
@@ -100,6 +102,7 @@ export function CustomerController() {
         allCustomers,
         loadAllCustomers,
 
-        generateCustomerId
+        generateCustomerId,
+        disableEnable
     };
 }
