@@ -71,6 +71,7 @@ export function CustomerController() {
         axios.get(baseUrl + 'customer/loadAllCustomers')
             .then((resp) => {
                 setAllCustomers(resp.data.data);
+                generateCustomerId();
             })
             .catch((error) => {
                 alert("Customers Loaded Error...!");
@@ -80,8 +81,19 @@ export function CustomerController() {
     const generateCustomerId = () => {
         axios.get(baseUrl + 'customer/generateCustomerId')
             .then((resp) => {
-                alert("Customer Id Generated Successfully...!");
-                console.log(resp.data.value);
+                let generatedId = resp.data.value;
+                if (generatedId === null) {
+                    setCustomerData({ ...customerData, id: "C00-001" });
+                } else {
+                    let tempId = parseInt(generatedId.split("-")[1]) + 1;
+                    if (tempId <= 9) {
+                        setCustomerData({ ...customerData, id: "C00-00" + tempId });
+                    } else if (tempId <= 99) {
+                        setCustomerData({ ...customerData, id: "C00-0" + tempId });
+                    } else {
+                        setCustomerData({ ...customerData, id: "C00-" + tempId });
+                    }
+                }
             })
             .catch((error) => {
                 alert("Customer Id Generated Error...!");
@@ -116,7 +128,6 @@ export function CustomerController() {
         allCustomers,
         loadAllCustomers,
 
-        generateCustomerId,
         disableEnable,
         tableListener,
         clearInputFields
