@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export function CustomerController() {
 
     let baseUrl = "http://localhost:8080/spring_pos/";
+
+    useEffect(() => {
+        loadAllCustomers();
+    });
 
     const [customerData, setCustomerData] = useState({
         id: '',
@@ -22,6 +26,7 @@ export function CustomerController() {
         axios.post(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Saved Successfully...!");
+                loadAllCustomers();
             })
             .catch((error) => {
                 alert("Customer Saved Error...!");
@@ -32,6 +37,7 @@ export function CustomerController() {
         axios.put(baseUrl + 'customer', customerData)
             .then((resp) => {
                 alert("Customer Updated Successfully...!");
+                loadAllCustomers();
             })
             .catch((error) => {
                 alert("Customer Updated Error...!");
@@ -42,6 +48,7 @@ export function CustomerController() {
         axios.delete(baseUrl + 'customer/' + customerData.id)
             .then((resp) => {
                 alert("Customer Deleted Successfully...!");
+                loadAllCustomers();
             })
             .catch((error) => {
                 alert("Customer Deleted Error...!");
