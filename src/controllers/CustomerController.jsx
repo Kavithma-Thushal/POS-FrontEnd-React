@@ -111,13 +111,12 @@ export function CustomerController() {
     };
 
     const clearInputFields = () => {
-        setDisableEnable(true);
         setCustomerData({
-            id: '',
             name: '',
             address: '',
             salary: ''
         });
+        setDisableEnable(true);
     }
 
     return {
