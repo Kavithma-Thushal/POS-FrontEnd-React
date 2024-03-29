@@ -131,12 +131,10 @@ export function CustomerController() {
         searchCusById,
         setSearchCusById,
         searchCustomer,
-
         allCustomers,
         loadAllCustomers,
-
-        disableEnable,
         tableListener,
+        disableEnable,
         clearInputFields
     };
 }

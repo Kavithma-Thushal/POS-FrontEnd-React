@@ -3,7 +3,7 @@ import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
     const { handleChange, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
-        allCustomers, loadAllCustomers, disableEnable, tableListener, clearInputFields } = CustomerController();
+        allCustomers, loadAllCustomers, tableListener, disableEnable, clearInputFields } = CustomerController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
