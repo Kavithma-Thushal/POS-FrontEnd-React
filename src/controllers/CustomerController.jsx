@@ -51,7 +51,6 @@ export function CustomerController() {
             .then((resp) => {
                 alert("Customer Deleted Successfully...!");
                 loadAllCustomers();
-                setDisableEnable(true);
             })
             .catch((error) => {
                 alert("Customer Deleted Error...!");
