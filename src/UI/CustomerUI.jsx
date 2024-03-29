@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
-    const { customerData, handleChange, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
+    const { handleChange, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
         allCustomers, loadAllCustomers, disableEnable, tableListener, clearInputFields } = CustomerController();
     return (
         <main className="container-fluid">
