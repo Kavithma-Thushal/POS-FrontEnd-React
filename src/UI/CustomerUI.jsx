@@ -18,7 +18,7 @@ export default function CustomerUI() {
                         <Row className="mb-3 ms-3 me-3 mt-3">
                             <Form.Label className="fw-bold">Search Customer</Form.Label>
                             <div className="input-group">
-                                <Form.Control className="me-3 mt-2 rounded-2 w-50" type="search" placeholder="Input Customer ID" value={searchCusById} onChange={(e) => setSearchCusById(e.target.value)} />
+                                <Form.Control className="me-3 mt-2 rounded-2 w-50" type="search" placeholder="Input Customer ID" onKeyDown={(e) => e.key === 'Enter' && searchCustomer()} value={searchCusById} onChange={(e) => setSearchCusById(e.target.value)} />
                                 <Button variant="secondary" className="mt-2 rounded-2 w-25" type="button" onClick={searchCustomer}>Search</Button>
                             </div>
                             <Button variant="success" className="mt-3 ms-3 rounded-2 w-25" type="button" onClick={loadAllCustomers}>Get All</Button>
