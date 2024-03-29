@@ -67,9 +67,11 @@ export function CustomerController() {
                     address: resp.data.address,
                     salary: resp.data.salary
                 }]);
+                clearInputFields();
             })
             .catch((error) => {
                 alert("Customer Searched Error...!");
+                loadAllCustomers();
             });
     };
 
