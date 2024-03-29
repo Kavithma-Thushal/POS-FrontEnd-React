@@ -60,7 +60,7 @@ export default function CustomerUI() {
                     {/* Customer Table */}
                     <Col xs={11} className="justify-content-around sectionBorder" style={{ background: 'white' }}>
                         <div className="customerTableDiv">
-                            <Table bordered hover className="mt-3">
+                            <Table bordered hover className="mt-3 table-cursor">
                                 <thead className="text-light table-dark text-center table-bordered">
                                     <tr>
                                         <th className="w-25">Customer ID</th>
