@@ -9,19 +9,20 @@ export function CustomerController() {
         loadAllCustomers();
     }, []);
 
+    const handleChange = (e) => {
+        setCustomerData({ ...customerData, [e.target.id]: e.target.value });
+    };
+
     const [customerData, setCustomerData] = useState({
         id: '',
         name: '',
         address: '',
         salary: ''
     });
+
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
     const [disableEnable, setDisableEnable] = useState(false);
-
-    const handleChange = (e) => {
-        setCustomerData({ ...customerData, [e.target.id]: e.target.value });
-    };
 
     const saveCustomer = () => {
         axios.post(baseUrl + 'customer', customerData)
@@ -120,8 +121,8 @@ export function CustomerController() {
     }
 
     return {
-        customerData,
         handleChange,
+        customerData,
         saveCustomer,
         updateCustomer,
         deleteCustomer,
