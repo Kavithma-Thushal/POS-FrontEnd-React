@@ -29,7 +29,7 @@ export default function CustomerUI() {
                         <Form>
                             <Form.Group className="m-3" controlId="id">
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
-                                <Form.Control className="form-control" type="text" value={customerData.id} onChange={handleChange} />
+                                <Form.Control className="form-control" type="text" disabled={true} value={customerData.id} onChange={handleChange} />
                                 <span className="control-error"></span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="name">
