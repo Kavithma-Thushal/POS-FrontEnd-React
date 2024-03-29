@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function CustomerController() {
 
@@ -27,33 +28,33 @@ export function CustomerController() {
     const saveCustomer = () => {
         axios.post(baseUrl + 'customer', customerData)
             .then((resp) => {
-                alert("Customer Saved Successfully...!");
+                successAlert("Customer", resp.data.message);
                 loadAllCustomers();
             })
             .catch((error) => {
-                alert("Customer Saved Error...!");
+                errorAlert("Customer", error.message);
             });
     };
 
     const updateCustomer = () => {
         axios.put(baseUrl + 'customer', customerData)
             .then((resp) => {
-                alert("Customer Updated Successfully...!");
+                successAlert("Customer", resp.data.message);
                 loadAllCustomers();
             })
             .catch((error) => {
-                alert("Customer Updated Error...!");
+                errorAlert("Customer", error.message);
             });
     };
 
     const deleteCustomer = () => {
         axios.delete(baseUrl + 'customer/' + customerData.id)
             .then((resp) => {
-                alert("Customer Deleted Successfully...!");
+                successAlert("Customer", resp.data.message);
                 loadAllCustomers();
             })
             .catch((error) => {
-                alert("Customer Deleted Error...!");
+                errorAlert("Customer", error.message);
             });
     };
 
@@ -70,7 +71,7 @@ export function CustomerController() {
                 clearInputFields();
             })
             .catch((error) => {
-                alert("Customer Searched Error...!");
+                emptyMessage(error.message);
                 loadAllCustomers();
             });
     };
@@ -82,7 +83,7 @@ export function CustomerController() {
                 generateCustomerId();
             })
             .catch((error) => {
-                alert("Customers Loaded Error...!");
+                console.log("Load All Customers Error : " + error);
             });
     };
 
@@ -104,7 +105,7 @@ export function CustomerController() {
                 }
             })
             .catch((error) => {
-                alert("Customer Id Generated Error...!");
+                console.log("Generate Customer Id Error : ", error);
             });
     };
 
