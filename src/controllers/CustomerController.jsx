@@ -118,6 +118,7 @@ export function CustomerController() {
             address: '',
             salary: ''
         });
+        setSearchCusById('');
         setDisableEnable(true);
     }
 
