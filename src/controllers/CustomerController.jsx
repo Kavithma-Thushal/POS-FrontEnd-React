@@ -141,7 +141,6 @@ export function CustomerController() {
                     let newId = tempId <= 9 ? "C00-00" + tempId : tempId <= 99 ? "C00-0" + tempId : "C00-" + tempId;
                     setCustomerData({ ...customerData, id: newId });
                 }
-                // Clear only the name, address, and salary fields
                 setCustomerData(prevState => ({
                     ...prevState,
                     name: '',
@@ -159,11 +158,12 @@ export function CustomerController() {
     };
 
     const clearInputFields = () => {
-        setCustomerData({
+        setCustomerData(prevState => ({
+            ...prevState,
             name: '',
             address: '',
             salary: ''
-        });
+        }));
         setSearchCusById('');
     }
 
