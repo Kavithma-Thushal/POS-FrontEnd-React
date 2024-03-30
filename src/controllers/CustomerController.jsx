@@ -20,7 +20,7 @@ export function CustomerController() {
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
     const [disableEnable, setDisableEnable] = useState(false);
-    const [errors, setErrors] = useState('');
+    const [cusValidations, setCusValidations] = useState('');
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -56,7 +56,7 @@ export function CustomerController() {
         }
 
         setCustomerData({ ...customerData, [id]: value });
-        setErrors({ ...errors, [id]: errorMessage });
+        setCusValidations({ ...cusValidations, [id]: errorMessage });
     };
 
     const saveCustomer = () => {
@@ -172,6 +172,6 @@ export function CustomerController() {
         tableListener,
         disableEnable,
         clearInputFields,
-        errors
+        cusValidations,
     };
 }

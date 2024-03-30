@@ -3,7 +3,7 @@ import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
     const { handleChange, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
-        allCustomers, loadAllCustomers, tableListener, disableEnable, clearInputFields, errors } = CustomerController();
+        allCustomers, loadAllCustomers, tableListener, disableEnable, clearInputFields, cusValidations } = CustomerController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -30,22 +30,22 @@ export default function CustomerUI() {
                             <Form.Group className="m-3" controlId="id">
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
                                 <Form.Control className="form-control" type="text" disabled={true} value={customerData.id} onChange={handleChange} />
-                                <span className="control-error">{errors.id}</span>
+                                <span className="control-error">{cusValidations.id}</span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="name">
                                 <Form.Label className="fw-bold">Customer Name</Form.Label>
                                 <Form.Control className="form-control" type="text" value={customerData.name} onChange={handleChange} />
-                                <span className="control-error">{errors.name}</span>
+                                <span className="control-error">{cusValidations.name}</span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="address">
                                 <Form.Label className="fw-bold">Customer Address</Form.Label>
                                 <Form.Control className="form-control" type="text" value={customerData.address} onChange={handleChange} />
-                                <span className="control-error">{errors.address}</span>
+                                <span className="control-error">{cusValidations.address}</span>
                             </Form.Group>
                             <Form.Group className="m-3" controlId="salary">
                                 <Form.Label className="fw-bold">Customer Salary</Form.Label>
                                 <Form.Control className="form-control" type="text" value={customerData.salary} onChange={handleChange} />
-                                <span className="control-error">{errors.salary}</span>
+                                <span className="control-error">{cusValidations.salary}</span>
                             </Form.Group>
                             <div className="m-4 text-center">
                                 <Button variant="primary" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={saveCustomer}>Save</Button>
