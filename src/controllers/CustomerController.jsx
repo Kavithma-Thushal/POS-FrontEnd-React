@@ -60,14 +60,23 @@ export function CustomerController() {
     };
 
     const saveCustomer = () => {
-        axios.post(baseUrl + 'customer', customerData)
-            .then((resp) => {
-                successAlert("Customer", resp.data.message);
-                loadAllCustomers();
-            })
-            .catch((error) => {
-                errorAlert("Customer", error.message);
-            });
+        const isValidId = /^(C00-)[0-9]{3}$/.test(customerData.id);
+        const isValidName = /^[A-z ]{3,20}$/.test(customerData.name);
+        const isValidAddress = /^[A-Za-z0-9/, -]{4,30}$/.test(customerData.address);
+        const isValidSalary = /^[0-9]{1,}[.]?[0-9]{2}$/.test(customerData.salary);
+
+        if (isValidId && isValidName && isValidAddress && isValidSalary) {
+            axios.post(baseUrl + 'customer', customerData)
+                .then((resp) => {
+                    successAlert("Customer", resp.data.message);
+                    loadAllCustomers();
+                })
+                .catch((error) => {
+                    errorAlert("Customer", error.message);
+                });
+        } else {
+            errorAlert("Fill all input fields correctly...!");
+        }
     };
 
     const updateCustomer = () => {
