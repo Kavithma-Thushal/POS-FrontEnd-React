@@ -138,14 +138,16 @@ export function CustomerController() {
                     setCustomerData({ ...customerData, id: "C00-001" });
                 } else {
                     let tempId = parseInt(generatedId.split("-")[1]) + 1;
-                    if (tempId <= 9) {
-                        setCustomerData({ ...customerData, id: "C00-00" + tempId });
-                    } else if (tempId <= 99) {
-                        setCustomerData({ ...customerData, id: "C00-0" + tempId });
-                    } else {
-                        setCustomerData({ ...customerData, id: "C00-" + tempId });
-                    }
+                    let newId = tempId <= 9 ? "C00-00" + tempId : tempId <= 99 ? "C00-0" + tempId : "C00-" + tempId;
+                    setCustomerData({ ...customerData, id: newId });
                 }
+                // Clear only the name, address, and salary fields
+                setCustomerData(prevState => ({
+                    ...prevState,
+                    name: '',
+                    address: '',
+                    salary: ''
+                }));
             })
             .catch((error) => {
                 console.log("Generate Customer Id Error : ", error);
@@ -163,7 +165,6 @@ export function CustomerController() {
             salary: ''
         });
         setSearchCusById('');
-        setDisableEnable(true);
     }
 
     return {
