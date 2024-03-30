@@ -75,7 +75,7 @@ export function CustomerController() {
                     errorAlert("Customer", error.message);
                 });
         } else {
-            errorAlert("Fill all input fields correctly...!");
+            errorAlert("All Details Required...!");
         }
     };
 
@@ -158,6 +158,7 @@ export function CustomerController() {
     };
 
     const clearInputFields = () => {
+        generateCustomerId();
         setCustomerData(prevState => ({
             ...prevState,
             name: '',
