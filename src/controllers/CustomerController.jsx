@@ -17,10 +17,9 @@ export function CustomerController() {
         salary: ''
     });
 
+    const [cusValidations, setCusValidations] = useState('');
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
-    const [disableEnable, setDisableEnable] = useState(false);
-    const [cusValidations, setCusValidations] = useState('');
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -55,8 +54,8 @@ export function CustomerController() {
                 break;
         }
 
-        setCustomerData({ ...customerData, [id]: value });
         setCusValidations({ ...cusValidations, [id]: errorMessage });
+        setCustomerData({ ...customerData, [id]: value });
     };
 
     const saveCustomer = () => {
@@ -75,8 +74,27 @@ export function CustomerController() {
                     errorAlert("Customer", error.message);
                 });
         } else {
-            errorAlert("All Details Required...!");
+            errorAlert("All Details Required - ");
         }
+    };
+
+    const searchCustomer = () => {
+        axios.get(baseUrl + 'customer/searchCustomer/' + searchCusById)
+            .then((resp) => {
+                setAllCustomers([]);
+                setAllCustomers([{
+                    id: resp.data.id,
+                    name: resp.data.name,
+                    address: resp.data.address,
+                    salary: resp.data.salary
+                }]);
+                clearInputFields();
+            })
+            .catch((error) => {
+                emptyMessage(error.message);
+                clearInputFields();
+                loadAllCustomers();
+            });
     };
 
     const updateCustomer = () => {
@@ -98,24 +116,6 @@ export function CustomerController() {
             })
             .catch((error) => {
                 errorAlert("Customer", error.message);
-            });
-    };
-
-    const searchCustomer = () => {
-        axios.get(baseUrl + 'customer/searchCustomer/' + searchCusById)
-            .then((resp) => {
-                setAllCustomers([]);
-                setAllCustomers([{
-                    id: resp.data.id,
-                    name: resp.data.name,
-                    address: resp.data.address,
-                    salary: resp.data.salary
-                }]);
-                clearInputFields();
-            })
-            .catch((error) => {
-                emptyMessage(error.message);
-                loadAllCustomers();
             });
     };
 
@@ -170,6 +170,7 @@ export function CustomerController() {
 
     return {
         handleChange,
+        cusValidations,
         customerData,
         saveCustomer,
         updateCustomer,
@@ -181,8 +182,6 @@ export function CustomerController() {
         allCustomers,
         loadAllCustomers,
         tableListener,
-        disableEnable,
         clearInputFields,
-        cusValidations,
     };
 }

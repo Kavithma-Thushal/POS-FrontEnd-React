@@ -2,8 +2,8 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
 export default function CustomerUI() {
-    const { handleChange, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
-        allCustomers, loadAllCustomers, tableListener, disableEnable, clearInputFields, cusValidations } = CustomerController();
+    const { handleChange, cusValidations, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
+        allCustomers, loadAllCustomers, tableListener, clearInputFields } = CustomerController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -48,9 +48,9 @@ export default function CustomerUI() {
                                 <span className="control-error">{cusValidations.salary}</span>
                             </Form.Group>
                             <div className="m-4 text-center">
-                                <Button variant="primary" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={saveCustomer}>Save</Button>
-                                <Button variant="warning" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={updateCustomer}>Update</Button>
-                                <Button variant="danger" className="mt-2 m-2 w-25" type="button" disabled={disableEnable} onClick={deleteCustomer}>Delete</Button>
+                                <Button variant="primary" className="mt-2 m-2 w-25" type="button" onClick={saveCustomer}>Save</Button>
+                                <Button variant="warning" className="mt-2 m-2 w-25" type="button" onClick={updateCustomer}>Update</Button>
+                                <Button variant="danger" className="mt-2 m-2 w-25" type="button" onClick={deleteCustomer}>Delete</Button>
                                 <Button variant="secondary" className="mt-2 m-2 w-25" type="button" onClick={clearInputFields}>Clear All</Button>
                             </div>
                         </Form>
