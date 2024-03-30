@@ -21,14 +21,15 @@ export function CustomerController() {
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
 
+    const regExCusId = /^(C00-)[0-9]{3}$/;
+    const regExCusName = /^[A-z ]{3,20}$/;
+    const regExCusAddress = /^[A-Za-z0-9/, -]{4,30}$/;
+    const regExCusSalary = /^[0-9]{1,}[.]?[0-9]{2}$/;
+
     const handleChange = (e) => {
         const { id, value } = e.target;
-        const regExCusId = /^(C00-)[0-9]{3}$/;
-        const regExCusName = /^[A-z ]{3,20}$/;
-        const regExCusAddress = /^[A-Za-z0-9/, -]{4,30}$/;
-        const regExCusSalary = /^[0-9]{1,}[.]?[0-9]{2}$/;
-
         let errorMessage = '';
+
         switch (id) {
             case 'id':
                 if (!regExCusId.test(value)) {
@@ -59,10 +60,10 @@ export function CustomerController() {
     };
 
     const saveCustomer = () => {
-        const isValidId = /^(C00-)[0-9]{3}$/.test(customerData.id);
-        const isValidName = /^[A-z ]{3,20}$/.test(customerData.name);
-        const isValidAddress = /^[A-Za-z0-9/, -]{4,30}$/.test(customerData.address);
-        const isValidSalary = /^[0-9]{1,}[.]?[0-9]{2}$/.test(customerData.salary);
+        const isValidId = regExCusId.test(customerData.id);
+        const isValidName = regExCusName.test(customerData.name);
+        const isValidAddress = regExCusAddress.test(customerData.address);
+        const isValidSalary = regExCusSalary.test(customerData.salary);
 
         if (isValidId && isValidName && isValidAddress && isValidSalary) {
             axios.post(baseUrl + 'customer', customerData)
