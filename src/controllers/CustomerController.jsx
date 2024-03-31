@@ -10,21 +10,20 @@ export function CustomerController() {
         loadAllCustomers();
     }, []);
 
+    const regExCusId = /^(C00-)[0-9]{3}$/;
+    const regExCusName = /^[A-z ]{3,20}$/;
+    const regExCusAddress = /^[A-Za-z0-9/, -]{4,30}$/;
+    const regExCusSalary = /^[0-9]{1,}[.]?[0-9]{2}$/;
+
     const [customerData, setCustomerData] = useState({
         id: '',
         name: '',
         address: '',
         salary: ''
     });
-
     const [cusValidations, setCusValidations] = useState('');
     const [searchCusById, setSearchCusById] = useState('');
     const [allCustomers, setAllCustomers] = useState([]);
-
-    const regExCusId = /^(C00-)[0-9]{3}$/;
-    const regExCusName = /^[A-z ]{3,20}$/;
-    const regExCusAddress = /^[A-Za-z0-9/, -]{4,30}$/;
-    const regExCusSalary = /^[0-9]{1,}[.]?[0-9]{2}$/;
 
     const handleChange = (e) => {
         const { id, value } = e.target;
