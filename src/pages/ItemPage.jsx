@@ -1,6 +1,6 @@
 import { Container, Form, Button, Table, Row, Col } from 'react-bootstrap';
 
-export default function ItemUI() {
+export default function ItemPage() {
     return (
         <main className="container-fluid" id="ItemSection">
             <Container className="d-flex flex-grow-1 flex-column">

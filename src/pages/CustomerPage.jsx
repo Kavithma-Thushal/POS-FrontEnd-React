@@ -1,7 +1,7 @@
 import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { CustomerController } from '../controllers/CustomerController';
 
-export default function CustomerUI() {
+export default function CustomerPage() {
     const { handleChange, cusValidations, customerData, saveCustomer, updateCustomer, deleteCustomer, searchCusById, setSearchCusById, searchCustomer,
         allCustomers, loadAllCustomers, tableListener, clearInputFields } = CustomerController();
     return (

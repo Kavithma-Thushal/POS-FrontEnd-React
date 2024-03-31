@@ -2,7 +2,7 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { HomeController } from '../controllers/HomeController';
 import DashboardCard from '../components/DashboardCard';
 
-export default function HomeUI() {
+export default function HomePage() {
     const { customerCount, itemCount, orderCount } = HomeController();
     return (
         <main className="container-fluid mt-2">
