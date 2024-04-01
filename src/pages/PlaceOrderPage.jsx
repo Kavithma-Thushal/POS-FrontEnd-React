@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerDetails, itemDetails } = PlaceOrderController();
+    const { customerCombo } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -27,8 +27,9 @@ export default function PlaceOrderPage() {
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="cmbCustomerId">Customer ID</Form.Label>
-                                <Form.Select className="form-select" aria-label="Default select example" value="Customer ID" />
+                                <Form.Label className="fw-bold">Customer ID</Form.Label>
+                                <Form.Select className="form-select" aria-label="Default select example">
+                                    {customerCombo.map(customer => (<option key={customer.id}>{customer.id}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" htmlFor="customerName">Customer Name</Form.Label>
@@ -110,14 +111,14 @@ export default function PlaceOrderPage() {
                                 <Form.Control className="form-control" disabled type="number" />
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
-                                <Button className="w-100" variant="success" type="button" onClick={customerDetails}>Purchase</Button>
+                                <Button className="w-100" variant="success" type="button">Purchase</Button>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
                 {/* ClearAll Button*/}
                 <div className="d-grid col-6 col-md-2 mt-4 mb-2 mx-auto">
-                    <Button variant="danger" className="sectionBorder" type="button" onClick={itemDetails}>Clear All</Button>
+                    <Button variant="danger" className="sectionBorder" type="button">Clear All</Button>
                 </div>
                 {/* PlaceOrder Table */}
                 <Row className="mt-1 mb-5 mt-md-2 mt-lg-3 justify-content-around">

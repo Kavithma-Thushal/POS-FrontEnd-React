@@ -6,16 +6,23 @@ export function PlaceOrderController() {
 
     let baseUrl = "http://localhost:8080/spring_pos/";
 
-    const customerDetails = () => {
-        console.log("Customer Details");
-    }
+    useEffect(() => {
+        customerComboBox();
+    }, []);
 
-    const itemDetails = () => {
-        console.log("Item Details");
-    }
+    const [customerCombo, setCustomerCombo] = useState([]);
+
+    const customerComboBox = () => {
+        axios.get(baseUrl + 'customer/loadAllCustomers')
+            .then((resp) => {
+                setCustomerCombo(resp.data.data);
+            })
+            .catch((error) => {
+                errorAlert("Order", error.message);
+            });
+    };
 
     return {
-        customerDetails,
-        itemDetails
+        customerCombo
     };
 }
