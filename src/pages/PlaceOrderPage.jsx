@@ -1,6 +1,8 @@
 import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
+import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
+    const { customerDetails, itemDetails } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -108,14 +110,14 @@ export default function PlaceOrderPage() {
                                 <Form.Control className="form-control" disabled type="number" />
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
-                                <Button variant="success" className="w-100" type="submit">Purchase</Button>
+                                <Button className="w-100" variant="success" type="button" onClick={customerDetails}>Purchase</Button>
                             </Col>
                         </Row>
                     </Col>
                 </Row>
                 {/* ClearAll Button*/}
                 <div className="d-grid col-6 col-md-2 mt-4 mb-2 mx-auto">
-                    <Button variant="danger" className="sectionBorder" type="button">Clear All</Button>
+                    <Button variant="danger" className="sectionBorder" type="button" onClick={itemDetails}>Clear All</Button>
                 </div>
                 {/* PlaceOrder Table */}
                 <Row className="mt-1 mb-5 mt-md-2 mt-lg-3 justify-content-around">
