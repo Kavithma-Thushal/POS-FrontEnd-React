@@ -29,7 +29,7 @@ export default function PlaceOrderPage() {
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
                                 <Form.Select className="form-select" aria-label="Default select example" onChange={(e) => handleCustomerCombo(e.target.value)}>
-                                    <option value=''></option>
+                                    <option disabled selected hidden value=''></option>
                                     {customerCombo.map(customer => (<option key={customer.id}>{customer.id}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
@@ -55,7 +55,7 @@ export default function PlaceOrderPage() {
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Item Code</Form.Label>
                                 <Form.Select className="form-select" aria-label="Default select example" onChange={(e) => handleItemCombo(e.target.value)}>
-                                    <option value=''></option>
+                                    <option disabled selected hidden value=''></option>
                                     {itemCombo.map(item => (<option key={item.code}>{item.code}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
