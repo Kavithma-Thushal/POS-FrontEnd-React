@@ -30,6 +30,8 @@ export function PlaceOrderController() {
     };
 
     const [itemCombo, setItemCombo] = useState([]);
+    const [itemDetails, setItemDetails] = useState(null);
+
 
     const itemComboBox = () => {
         axios.get(baseUrl + 'item/loadAllItems')
@@ -41,11 +43,18 @@ export function PlaceOrderController() {
             });
     };
 
+    const handleItemCombo = (itemCode) => {
+        const selected = itemCombo.find(item => item.code === itemCode);
+        setItemDetails(selected);
+    };
+
     return {
         customerCombo,
         customerDetails,
         handleCustomerCombo,
 
-        itemCombo
+        itemCombo,
+        itemDetails,
+        handleItemCombo
     };
 }

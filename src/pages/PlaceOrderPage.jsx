@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo } = PlaceOrderController();
+    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -54,22 +54,23 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Item Code</Form.Label>
-                                <Form.Select className="form-select" aria-label="Default select example">
+                                <Form.Select className="form-select" aria-label="Default select example" onChange={(e) => handleItemCombo(e.target.value)}>
+                                    <option value=''></option>
                                     {itemCombo.map(item => (<option key={item.code}>{item.code}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Item Description</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={itemDetails ? itemDetails.description : ''} />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Unit Price</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={itemDetails ? itemDetails.unitPrice : ''} />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Qty On Hand</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={itemDetails ? itemDetails.qty : ''} />
                             </Col>
                         </Row>
                         <Row className="mt-1">
