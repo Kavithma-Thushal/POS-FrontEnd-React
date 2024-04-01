@@ -7,6 +7,7 @@ export function PlaceOrderController() {
     let baseUrl = "http://localhost:8080/spring_pos/";
 
     useEffect(() => {
+        setDate();
         generateOrderId();
         customerComboBox();
         itemComboBox();
@@ -49,7 +50,7 @@ export function PlaceOrderController() {
         setItemDetails(selected);
     };
 
-    const [orderId, setOrderId] = useState('');
+    const [generatedId, setGeneratedId] = useState('');
     const generateOrderId = () => {
         const baseUrl = "http://localhost:8080/spring_pos/";
         axios.get(baseUrl + 'orders/generateOrderId')
@@ -57,11 +58,11 @@ export function PlaceOrderController() {
                 console.log("Success");
                 let generatedId = resp.data.value;
                 if (generatedId === null) {
-                    setOrderId("ODI-001");
+                    setGeneratedId("ODI-001");
                 } else {
                     let tempId = parseInt(generatedId.split("-")[1]) + 1;
                     let newId = tempId <= 9 ? "ODI-00" + tempId : tempId <= 99 ? "ODI-0" + tempId : "ODI-" + tempId;
-                    setOrderId(newId);
+                    setGeneratedId(newId);
                 }
             })
             .catch((error) => {
@@ -69,16 +70,26 @@ export function PlaceOrderController() {
             });
     };
 
+    const [orderDate, setOrderDate] = useState('');
+    const setDate = () => {
+        let date = new Date();
+        let day = ("0" + date.getDate()).slice(-2);
+        let month = ("0" + (date.getMonth() + 1)).slice(-2);
+        let today = date.getFullYear() + "-" + month + "-" + day;
+        setOrderDate(today);
+    };
+
     return {
+        orderDate,
+        setOrderDate,
+        generatedId,
+
         customerCombo,
         customerDetails,
         handleCustomerCombo,
 
         itemCombo,
         itemDetails,
-        handleItemCombo,
-
-        orderId,
-        generateOrderId
+        handleItemCombo
     };
 }

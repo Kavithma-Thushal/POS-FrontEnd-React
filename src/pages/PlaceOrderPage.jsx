@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo, orderId, generateOrderId } = PlaceOrderController();
+    const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -18,11 +18,11 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Order ID</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" value={orderId} />
+                                <Form.Control className="form-control" disabled type="text" value={generatedId} />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Order Date</Form.Label>
-                                <Form.Control className="form-control" type="date" />
+                                <Form.Control className="form-control" type="date" value={orderDate} onChange={(e) => setOrderDate(e.target.value)} />
                             </Col>
                         </Row>
                         <Row className="mt-1">
