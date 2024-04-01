@@ -12,7 +12,7 @@ export function PlaceOrderController() {
     }, []);
 
     const [customerCombo, setCustomerCombo] = useState([]);
-    const [itemCombo, setItemCombo] = useState([]);
+    const [customerDetails, setCustomerDetails] = useState(null);
 
     const customerComboBox = () => {
         axios.get(baseUrl + 'customer/loadAllCustomers')
@@ -23,6 +23,13 @@ export function PlaceOrderController() {
                 errorAlert("Order", error.message);
             });
     };
+
+    const handleCustomerCombo = (customerId) => {
+        const selected = customerCombo.find(customer => customer.id === customerId);
+        setCustomerDetails(selected);
+    };
+
+    const [itemCombo, setItemCombo] = useState([]);
 
     const itemComboBox = () => {
         axios.get(baseUrl + 'item/loadAllItems')
@@ -36,6 +43,9 @@ export function PlaceOrderController() {
 
     return {
         customerCombo,
+        customerDetails,
+        handleCustomerCombo,
+
         itemCombo
     };
 }

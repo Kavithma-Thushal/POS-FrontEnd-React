@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerCombo, itemCombo } = PlaceOrderController();
+    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -28,22 +28,23 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Customer ID</Form.Label>
-                                <Form.Select className="form-select" aria-label="Default select example">
+                                <Form.Select className="form-select" aria-label="Default select example" onChange={(e) => handleCustomerCombo(e.target.value)}>
+                                    <option value=''></option>
                                     {customerCombo.map(customer => (<option key={customer.id}>{customer.id}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Customer Name</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={customerDetails ? customerDetails.name : ''} />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Address</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={customerDetails ? customerDetails.address : ''} />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Salary</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" />
+                                <Form.Control className="form-control" disabled type="text" value={customerDetails ? customerDetails.salary : ''} />
                             </Col>
                         </Row>
                     </Col>
