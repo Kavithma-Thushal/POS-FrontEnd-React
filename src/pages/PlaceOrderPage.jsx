@@ -17,11 +17,11 @@ export default function PlaceOrderPage() {
                         <h5 className="text-center p-2 text-light rounded-3" style={{ background: 'dodgerblue' }}>Invoice Details</h5>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="orderId">Order ID</Form.Label>
+                                <Form.Label className="fw-bold">Order ID</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" value="ODI-001" />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="orderDate">Order Date</Form.Label>
+                                <Form.Label className="fw-bold">Order Date</Form.Label>
                                 <Form.Control className="form-control" type="date" />
                             </Col>
                         </Row>
@@ -32,17 +32,17 @@ export default function PlaceOrderPage() {
                                     {customerCombo.map(customer => (<option key={customer.id}>{customer.id}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="customerName">Customer Name</Form.Label>
+                                <Form.Label className="fw-bold">Customer Name</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="customerAddress">Address</Form.Label>
+                                <Form.Label className="fw-bold">Address</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="customerSalary">Salary</Form.Label>
+                                <Form.Label className="fw-bold">Salary</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                         </Row>
@@ -57,23 +57,23 @@ export default function PlaceOrderPage() {
                                     {itemCombo.map(item => (<option key={item.code}>{item.code}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="itemName">Item Description</Form.Label>
+                                <Form.Label className="fw-bold">Item Description</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="itemPrice">Unit Price</Form.Label>
+                                <Form.Label className="fw-bold">Unit Price</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="qtyOnHand">Qty On Hand</Form.Label>
+                                <Form.Label className="fw-bold" >Qty On Hand</Form.Label>
                                 <Form.Control className="form-control" disabled type="text" />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="buyQty">Buy Qty</Form.Label>
+                                <Form.Label className="fw-bold" >Buy Qty</Form.Label>
                                 <Form.Control className="form-control" type="text" />
                                 <strong className="control-error"></strong>
                             </Col>
@@ -87,28 +87,28 @@ export default function PlaceOrderPage() {
                         <h5 className="text-center p-2 text-light rounded-3" style={{ background: 'dodgerblue' }}>Payment Details</h5>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="txtTotal">Total</Form.Label>
+                                <Form.Label className="fw-bold" >Total</Form.Label>
                                 <Form.Control className="form-control" disabled type="number" />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="txtDiscount">Discount</Form.Label>
+                                <Form.Label className="fw-bold" >Discount</Form.Label>
                                 <Form.Control className="form-control" role="spinbutton" type="number" />
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="txtSubTotal">Sub Total</Form.Label>
+                                <Form.Label className="fw-bold" >Sub Total</Form.Label>
                                 <Form.Control className="form-control" disabled type="number" />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="txtCash">Cash</Form.Label>
+                                <Form.Label className="fw-bold" >Cash</Form.Label>
                                 <Form.Control className="form-control" type="text" />
                                 <strong className="control-error"></strong>
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="txtBalance">Balance</Form.Label>
+                                <Form.Label className="fw-bold" >Balance</Form.Label>
                                 <Form.Control className="form-control" disabled type="number" />
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
@@ -119,7 +119,7 @@ export default function PlaceOrderPage() {
                 </Row>
                 {/* ClearAll Button*/}
                 <div className="d-grid col-6 col-md-2 mt-4 mb-2 mx-auto">
-                    <Button variant="danger" className="sectionBorder" type="button">Clear All</Button>
+                    <Button variant="danger" type="button">Clear All</Button>
                 </div>
                 {/* PlaceOrder Table */}
                 <Row className="mt-1 mb-5 mt-md-2 mt-lg-3 justify-content-around">
