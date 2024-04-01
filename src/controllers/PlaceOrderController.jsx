@@ -7,6 +7,7 @@ export function PlaceOrderController() {
     let baseUrl = "http://localhost:8080/spring_pos/";
 
     useEffect(() => {
+        generateOrderId();
         customerComboBox();
         itemComboBox();
     }, []);
@@ -48,6 +49,26 @@ export function PlaceOrderController() {
         setItemDetails(selected);
     };
 
+    const [orderId, setOrderId] = useState('');
+    const generateOrderId = () => {
+        const baseUrl = "http://localhost:8080/spring_pos/";
+        axios.get(baseUrl + 'orders/generateOrderId')
+            .then((resp) => {
+                console.log("Success");
+                let generatedId = resp.data.value;
+                if (generatedId === null) {
+                    setOrderId("ODI-001");
+                } else {
+                    let tempId = parseInt(generatedId.split("-")[1]) + 1;
+                    let newId = tempId <= 9 ? "ODI-00" + tempId : tempId <= 99 ? "ODI-0" + tempId : "ODI-" + tempId;
+                    setOrderId(newId);
+                }
+            })
+            .catch((error) => {
+                console.log("Generate Order Id Error : ", error);
+            });
+    };
+
     return {
         customerCombo,
         customerDetails,
@@ -55,6 +76,9 @@ export function PlaceOrderController() {
 
         itemCombo,
         itemDetails,
-        handleItemCombo
+        handleItemCombo,
+
+        orderId,
+        generateOrderId
     };
 }

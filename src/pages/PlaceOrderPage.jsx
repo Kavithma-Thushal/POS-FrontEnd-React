@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo } = PlaceOrderController();
+    const { customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo, orderId, generateOrderId } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -18,7 +18,7 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Order ID</Form.Label>
-                                <Form.Control className="form-control" disabled type="text" value="ODI-001" />
+                                <Form.Control className="form-control" disabled type="text" value={orderId} />
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold">Order Date</Form.Label>
