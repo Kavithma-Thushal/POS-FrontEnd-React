@@ -2,7 +2,7 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { customerCombo } = PlaceOrderController();
+    const { customerCombo, itemCombo } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -52,8 +52,9 @@ export default function PlaceOrderPage() {
                         <h5 className="text-center p-2 text-light rounded-3" style={{ background: 'dodgerblue' }}>Item Details</h5>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
-                                <Form.Label className="fw-bold" htmlFor="cmbItemCode">Item Code</Form.Label>
-                                <Form.Select className="form-select" aria-label="Default select example" value="Item Code" />
+                                <Form.Label className="fw-bold">Item Code</Form.Label>
+                                <Form.Select className="form-select" aria-label="Default select example">
+                                    {itemCombo.map(item => (<option key={item.code}>{item.code}</option>))}</Form.Select>
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" htmlFor="itemName">Item Description</Form.Label>

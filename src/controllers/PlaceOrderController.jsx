@@ -8,9 +8,11 @@ export function PlaceOrderController() {
 
     useEffect(() => {
         customerComboBox();
+        itemComboBox();
     }, []);
 
     const [customerCombo, setCustomerCombo] = useState([]);
+    const [itemCombo, setItemCombo] = useState([]);
 
     const customerComboBox = () => {
         axios.get(baseUrl + 'customer/loadAllCustomers')
@@ -22,7 +24,18 @@ export function PlaceOrderController() {
             });
     };
 
+    const itemComboBox = () => {
+        axios.get(baseUrl + 'item/loadAllItems')
+            .then((resp) => {
+                setItemCombo(resp.data.data);
+            })
+            .catch((error) => {
+                errorAlert("Order", error.message);
+            });
+    };
+
     return {
-        customerCombo
+        customerCombo,
+        itemCombo
     };
 }
