@@ -78,7 +78,6 @@ export function PlaceOrderController() {
         setOrderDate(today);
     };
 
-    //Add To Cart - Start
     const [disableAddToCart, setDisableAddToCrt] = useState(true);
     const [cartItems, setCartItems] = useState([]);
     const [buyQty, setBuyQty] = useState('');
@@ -103,6 +102,8 @@ export function PlaceOrderController() {
         }
     };
 
+    //Add To Cart
+    const [total, setTotal] = useState(0);
     const addToCart = (itemCode, itemDescription, itemUnitPrice, itemBuyQty) => {
         const total = itemUnitPrice * itemBuyQty;
         const newItem = {
@@ -114,7 +115,12 @@ export function PlaceOrderController() {
         };
         setCartItems(prevItems => [...prevItems, newItem]);
     };
-    //Add To Cart - End
+
+    // Calculate total whenever cart Items changes
+    useEffect(() => {
+        const newTotal = cartItems.reduce((acc, item) => acc + (item.itemUnitPrice * item.itemBuyQty), 0);
+        setTotal(newTotal);
+    }, [cartItems]);
 
     return {
         orderDate,
@@ -135,5 +141,7 @@ export function PlaceOrderController() {
         error,
         disableAddToCart,
         handleAddToCart,
+
+        total
     };
 }
