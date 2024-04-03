@@ -55,7 +55,6 @@ export function PlaceOrderController() {
         const baseUrl = "http://localhost:8080/spring_pos/";
         axios.get(baseUrl + 'orders/generateOrderId')
             .then((resp) => {
-                console.log("Success");
                 let generatedId = resp.data.value;
                 if (generatedId === null) {
                     setGeneratedId("ODI-001");
