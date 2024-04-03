@@ -135,6 +135,21 @@ export function PlaceOrderController() {
         setSubTotal(subtotal);
     };
 
+    // Cash Entered & Get Balance
+    const [cash, setCash] = useState('');
+    const [balance, setBalance] = useState(0);
+
+    const handleCash = (e) => {
+        const enteredCash = parseFloat(e.target.value);
+        setCash(enteredCash);
+        calculateBalance(enteredCash);
+    };
+
+    const calculateBalance = (enteredCash) => {
+        const newBalance = enteredCash - subTotal;
+        setBalance(newBalance);
+    };
+
     return {
         orderDate,
         setOrderDate,
@@ -157,6 +172,10 @@ export function PlaceOrderController() {
 
         total,
         setDiscount,
-        subTotal
+        subTotal,
+
+        cash,
+        balance,
+        handleCash
     };
 }

@@ -3,7 +3,7 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
-        buyQty, setBuyQty, cartItems, error, disableAddToCart, handleAddToCart, total, setDiscount, subTotal } = PlaceOrderController();
+        buyQty, setBuyQty, cartItems, error, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -105,14 +105,14 @@ export default function PlaceOrderPage() {
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Cash</Form.Label>
-                                <Form.Control className="form-control" type="text" />
+                                <Form.Control className="form-control" type="text" value={cash} onChange={handleCash} />
                                 <strong className="control-error"></strong>
                             </Col>
                         </Row>
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Balance</Form.Label>
-                                <Form.Control className="form-control" disabled type="number" />
+                                <Form.Control className="form-control" disabled type="number" value={balance} />
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
                                 <Button className="w-100" variant="success" type="button">Purchase</Button>
