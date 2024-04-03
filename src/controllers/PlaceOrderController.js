@@ -82,6 +82,7 @@ export function PlaceOrderController() {
     const [disableAddToCart, setDisableAddToCrt] = useState(true);
     const [cartItems, setCartItems] = useState([]);
     const [buyQty, setBuyQty] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         setDisableAddToCrt(buyQty <= 0);
@@ -89,7 +90,11 @@ export function PlaceOrderController() {
 
     const handleAddToCart = (e) => {
         if (itemDetails && buyQty > 0) {
-            addToCart(itemDetails.code, itemDetails.description, itemDetails.unitPrice, buyQty);
+            if (itemDetails.qty <= 0) {
+                setError("Empty Stock");
+            } else {
+                addToCart(itemDetails.code, itemDetails.description, itemDetails.unitPrice, buyQty);
+            }
             setBuyQty('');
             setItemDetails('');
         }
@@ -124,6 +129,7 @@ export function PlaceOrderController() {
         buyQty,
         setBuyQty,
         cartItems,
+        error,
         disableAddToCart,
         handleAddToCart,
     };
