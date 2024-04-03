@@ -22,7 +22,7 @@ export function PlaceOrderController() {
                 setCustomerCombo(resp.data.data);
             })
             .catch((error) => {
-                errorAlert("Order", error.message);
+                console.log("Order", error.message);
             });
     };
 
@@ -41,7 +41,7 @@ export function PlaceOrderController() {
                 setItemCombo(resp.data.data);
             })
             .catch((error) => {
-                errorAlert("Order", error.message);
+                console.log("Order", error.message);
             });
     };
 
