@@ -139,6 +139,7 @@ export function PlaceOrderController() {
     const [cash, setCash] = useState('');
     const [balance, setBalance] = useState(0);
     const [invalidCashError, setInvalidCashError] = useState('');
+    const [disableBtnPurchase, setDisableBtnPurchase] = useState(true);
 
     const handleCash = (e) => {
         const enteredCash = parseFloat(e.target.value);
@@ -150,8 +151,10 @@ export function PlaceOrderController() {
         const newBalance = enteredCash - subTotal;
         setBalance(newBalance);
         if (newBalance >= 0) {
+            setDisableBtnPurchase(false);
             setInvalidCashError('');
         } else {
+            setDisableBtnPurchase(true);
             setInvalidCashError("Invalid Cash");
         }
     };
@@ -183,6 +186,7 @@ export function PlaceOrderController() {
         cash,
         balance,
         handleCash,
-        invalidCashError
+        invalidCashError,
+        disableBtnPurchase
     };
 }
