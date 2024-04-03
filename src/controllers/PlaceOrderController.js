@@ -122,6 +122,19 @@ export function PlaceOrderController() {
         setTotal(newTotal);
     }, [cartItems]);
 
+    const [discount, setDiscount] = useState('');
+    const [subTotal, setSubTotal] = useState('');
+
+    useEffect(() => {
+        handleSubTotal();
+    }, [discount]);
+
+    // Discount Added
+    const handleSubTotal = () => {
+        const subtotal = total - discount;
+        setSubTotal(subtotal);
+    };
+
     return {
         orderDate,
         setOrderDate,
@@ -142,6 +155,8 @@ export function PlaceOrderController() {
         disableAddToCart,
         handleAddToCart,
 
-        total
+        total,
+        setDiscount,
+        subTotal
     };
 }
