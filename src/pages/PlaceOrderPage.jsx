@@ -3,7 +3,7 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
-        buyQty, setBuyQty, handleAddToCart, cartItems } = PlaceOrderController();
+        buyQty, setBuyQty, cartItems, disableAddToCart, handleAddToCart } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -77,11 +77,11 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Buy Qty</Form.Label>
-                                <Form.Control className="form-control" type="text" value={buyQty} onChange={(e) => setBuyQty(e.target.value)} />
+                                <Form.Control className="form-control" type="number" value={buyQty} onChange={(e) => setBuyQty(e.target.value)} />
                                 <strong className="control-error"></strong>
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
-                                <Button variant="primary" className="w-100" type="button" onClick={handleAddToCart}>Add To Cart</Button>
+                                <Button variant="primary" className="w-100" type="button" disabled={disableAddToCart} onClick={handleAddToCart}>Add To Cart</Button>
                             </Col>
                         </Row>
                     </Col>

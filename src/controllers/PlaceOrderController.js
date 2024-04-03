@@ -79,8 +79,13 @@ export function PlaceOrderController() {
     };
 
     //Add To Cart - Start
+    const [disableAddToCart, setDisableAddToCrt] = useState(true);
     const [cartItems, setCartItems] = useState([]);
     const [buyQty, setBuyQty] = useState('');
+
+    useEffect(() => {
+        setDisableAddToCrt(buyQty <= 0);
+    }, [buyQty]);
 
     const handleAddToCart = (e) => {
         if (itemDetails && buyQty > 0) {
@@ -118,7 +123,8 @@ export function PlaceOrderController() {
 
         buyQty,
         setBuyQty,
+        cartItems,
+        disableAddToCart,
         handleAddToCart,
-        cartItems
     };
 }
