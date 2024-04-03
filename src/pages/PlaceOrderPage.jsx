@@ -3,7 +3,8 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
-        buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash } = PlaceOrderController();
+        buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash,
+        invalidCashError } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -106,7 +107,7 @@ export default function PlaceOrderPage() {
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Cash</Form.Label>
                                 <Form.Control className="form-control" type="text" value={cash} onChange={handleCash} />
-                                <strong className="control-error"></strong>
+                                <strong className="control-error">{invalidCashError}</strong>
                             </Col>
                         </Row>
                         <Row className="mt-1">

@@ -138,6 +138,7 @@ export function PlaceOrderController() {
     // Cash Entered & Get Balance
     const [cash, setCash] = useState('');
     const [balance, setBalance] = useState(0);
+    const [invalidCashError, setInvalidCashError] = useState('');
 
     const handleCash = (e) => {
         const enteredCash = parseFloat(e.target.value);
@@ -148,6 +149,11 @@ export function PlaceOrderController() {
     const calculateBalance = (enteredCash) => {
         const newBalance = enteredCash - subTotal;
         setBalance(newBalance);
+        if (newBalance >= 0) {
+            setInvalidCashError('');
+        } else {
+            setInvalidCashError("Invalid Cash");
+        }
     };
 
     return {
@@ -176,6 +182,7 @@ export function PlaceOrderController() {
 
         cash,
         balance,
-        handleCash
+        handleCash,
+        invalidCashError
     };
 }
