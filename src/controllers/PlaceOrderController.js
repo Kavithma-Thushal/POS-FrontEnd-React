@@ -81,7 +81,7 @@ export function PlaceOrderController() {
     const [disableAddToCart, setDisableAddToCrt] = useState(true);
     const [cartItems, setCartItems] = useState([]);
     const [buyQty, setBuyQty] = useState('');
-    const [error, setError] = useState('');
+    const [emptyStockError, setEmptyStockError] = useState('');
 
     useEffect(() => {
         setDisableAddToCrt(buyQty <= 0);
@@ -93,7 +93,7 @@ export function PlaceOrderController() {
             const buyOnHand = itemDetails.qty - buyQty;
             // Check if the item is out of stock
             if (buyOnHand < 0) {
-                setError("Empty Stock");
+                setEmptyStockError("Empty Stock");
             } else {
                 addToCart(itemDetails.code, itemDetails.description, itemDetails.unitPrice, buyQty);
             }
@@ -131,7 +131,7 @@ export function PlaceOrderController() {
 
     // Discount Added
     const handleSubTotal = () => {
-        const subtotal = total - discount;
+        const subtotal = total - ((total * discount) / 100);
         setSubTotal(subtotal);
     };
 
@@ -166,7 +166,7 @@ export function PlaceOrderController() {
         buyQty,
         setBuyQty,
         cartItems,
-        error,
+        emptyStockError,
         disableAddToCart,
         handleAddToCart,
 
