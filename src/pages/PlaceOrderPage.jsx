@@ -2,7 +2,8 @@ import { Container, Form, Table, Row, Col, Button } from 'react-bootstrap';
 import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
-    const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo } = PlaceOrderController();
+    const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
+        buyQty, setBuyQty, handleAddToCart, cartItems } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -76,11 +77,11 @@ export default function PlaceOrderPage() {
                         <Row className="mt-1">
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Buy Qty</Form.Label>
-                                <Form.Control className="form-control" type="text" />
+                                <Form.Control className="form-control" type="text" value={buyQty} onChange={(e) => setBuyQty(e.target.value)} />
                                 <strong className="control-error"></strong>
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
-                                <Button variant="primary" className="w-100" type="button">Add To Cart</Button>
+                                <Button variant="primary" className="w-100" type="button" onClick={handleAddToCart}>Add To Cart</Button>
                             </Col>
                         </Row>
                     </Col>
@@ -137,7 +138,17 @@ export default function PlaceOrderPage() {
                                         <th>Payment Total</th>
                                     </tr>
                                 </thead>
-                                <tbody id="tblAddToCart"></tbody>
+                                <tbody>
+                                    {cartItems.map((item, index) => (
+                                        <tr key={index}>
+                                            <td>{item.itemCode}</td>
+                                            <td>{item.itemDescription}</td>
+                                            <td>{item.itemUnitPrice}</td>
+                                            <td>{item.itemBuyQty}</td>
+                                            <td>{item.total}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
                             </Table>
                         </div>
                     </Col>

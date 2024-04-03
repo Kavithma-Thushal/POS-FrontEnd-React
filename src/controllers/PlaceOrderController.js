@@ -78,6 +78,31 @@ export function PlaceOrderController() {
         setOrderDate(today);
     };
 
+    //Add To Cart - Start
+    const [cartItems, setCartItems] = useState([]);
+    const [buyQty, setBuyQty] = useState('');
+
+    const handleAddToCart = (e) => {
+        if (itemDetails && buyQty > 0) {
+            addToCart(itemDetails.code, itemDetails.description, itemDetails.unitPrice, buyQty);
+            setBuyQty('');
+            setItemDetails('');
+        }
+    };
+
+    const addToCart = (itemCode, itemDescription, itemUnitPrice, itemBuyQty) => {
+        const total = itemUnitPrice * itemBuyQty;
+        const newItem = {
+            itemCode,
+            itemDescription,
+            itemUnitPrice,
+            itemBuyQty,
+            total
+        };
+        setCartItems(prevItems => [...prevItems, newItem]);
+    };
+    //Add To Cart - End
+
     return {
         orderDate,
         setOrderDate,
@@ -89,6 +114,11 @@ export function PlaceOrderController() {
 
         itemCombo,
         itemDetails,
-        handleItemCombo
+        handleItemCombo,
+
+        buyQty,
+        setBuyQty,
+        handleAddToCart,
+        cartItems
     };
 }
