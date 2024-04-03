@@ -89,8 +89,11 @@ export function PlaceOrderController() {
     }, [buyQty]);
 
     const handleAddToCart = (e) => {
+        // Check if itemDetails is not null and buyQty is greater than 0
         if (itemDetails && buyQty > 0) {
-            if (itemDetails.qty <= 0) {
+            const buyOnHand = itemDetails.qty - buyQty;
+            // Check if the item is out of stock
+            if (buyOnHand < 0) {
                 setError("Empty Stock");
             } else {
                 addToCart(itemDetails.code, itemDetails.description, itemDetails.unitPrice, buyQty);
