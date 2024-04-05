@@ -188,16 +188,18 @@ export function PlaceOrderController() {
     const btnClearAll = () => {
         setCustomerDetails('');
         setItemDetails('');
-        setOrderDate('');
+        setDate();
         setDisableAddToCrt(true);
         setBuyQty('');
         setTotal(0);
-        setDiscount(0);
+        setDiscount('');
         setSubTotal(0);
         setCash('');
         setBalance(0);
         setDisableBtnPurchase(true);
         setCartItems([]);
+        setCustomerCombo([]);
+        setItemCombo([]);
     }
 
     return {
@@ -221,6 +223,7 @@ export function PlaceOrderController() {
         handleAddToCart,
 
         total,
+        discount,
         setDiscount,
         subTotal,
 

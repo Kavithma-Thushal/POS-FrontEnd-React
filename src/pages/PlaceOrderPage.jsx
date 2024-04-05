@@ -3,8 +3,8 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
-        buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash,
-        invalidCashError, disableBtnPurchase,placeOrder, btnClearAll } = PlaceOrderController();
+        buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, discount, setDiscount, subTotal, cash, balance, handleCash,
+        invalidCashError, disableBtnPurchase, placeOrder, btnClearAll } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -96,7 +96,7 @@ export default function PlaceOrderPage() {
                             </Col>
                             <Col xs={12} md={6} lg={6}>
                                 <Form.Label className="fw-bold" >Discount</Form.Label>
-                                <Form.Control className="form-control" role="spinbutton" type="number" onChange={(e) => setDiscount(e.target.value)} />
+                                <Form.Control className="form-control" role="spinbutton" type="number" value={discount} onChange={(e) => setDiscount(e.target.value)} />
                             </Col>
                         </Row>
                         <Row className="mt-1">
