@@ -159,6 +159,32 @@ export function PlaceOrderController() {
         }
     };
 
+    const placeOrder = () => {
+        const orderDetails = cartItems.map(item => ({
+            oid: generatedId,
+            itemCode: item.itemCode,
+            qty: item.itemBuyQty,
+            unitPrice: item.itemUnitPrice
+        }));
+
+        const orderObj = {
+            "oid": generatedId,
+            "date": orderDate,
+            "cusID": customerDetails ? customerDetails.id : '',
+            "orderDetails": orderDetails
+        };
+
+        axios.post(baseUrl + "orders", orderObj)
+            .then(resp => {
+                successAlert("Order", resp.data.message);
+                generateOrderId();
+                btnClearAll();
+            })
+            .catch(error => {
+                errorAlert("Order", error.response.data.message);
+            });
+    };
+
     const btnClearAll = () => {
         setCustomerDetails('');
         setItemDetails('');
@@ -204,6 +230,7 @@ export function PlaceOrderController() {
         invalidCashError,
         disableBtnPurchase,
 
+        placeOrder,
         btnClearAll
     };
 }

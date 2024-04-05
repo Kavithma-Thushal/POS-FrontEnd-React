@@ -4,7 +4,7 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
         buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash,
-        invalidCashError, disableBtnPurchase, btnClearAll } = PlaceOrderController();
+        invalidCashError, disableBtnPurchase,placeOrder, btnClearAll } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -116,7 +116,7 @@ export default function PlaceOrderPage() {
                                 <Form.Control className="form-control" disabled type="number" value={balance} />
                             </Col>
                             <Col xs={12} md={6} lg={6} className="mt-4">
-                                <Button className="w-100" variant="success" type="button" disabled={disableBtnPurchase}>Purchase</Button>
+                                <Button className="w-100" variant="success" type="button" disabled={disableBtnPurchase} onClick={placeOrder}>Purchase</Button>
                             </Col>
                         </Row>
                     </Col>
