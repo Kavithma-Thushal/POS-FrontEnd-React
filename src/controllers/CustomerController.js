@@ -4,7 +4,7 @@ import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function CustomerController() {
 
-    let baseUrl = "http://localhost:8080/spring_pos/";
+    const baseUrl = "http://localhost:8080/spring_pos/";
 
     useEffect(() => {
         loadAllCustomers();

@@ -4,7 +4,7 @@ import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function PlaceOrderController() {
 
-    let baseUrl = "http://localhost:8080/spring_pos/";
+    const baseUrl = "http://localhost:8080/spring_pos/";
 
     useEffect(() => {
         setDate();
@@ -159,6 +159,21 @@ export function PlaceOrderController() {
         }
     };
 
+    const btnClearAll = () => {
+        setCustomerDetails('');
+        setItemDetails('');
+        setOrderDate('');
+        setDisableAddToCrt(true);
+        setBuyQty('');
+        setTotal(0);
+        setDiscount(0);
+        setSubTotal(0);
+        setCash('');
+        setBalance(0);
+        setDisableBtnPurchase(true);
+        setCartItems([]);
+    }
+
     return {
         orderDate,
         setOrderDate,
@@ -187,6 +202,8 @@ export function PlaceOrderController() {
         balance,
         handleCash,
         invalidCashError,
-        disableBtnPurchase
+        disableBtnPurchase,
+
+        btnClearAll
     };
 }

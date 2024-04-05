@@ -4,7 +4,7 @@ import { PlaceOrderController } from '../controllers/PlaceOrderController';
 export default function PlaceOrderPage() {
     const { orderDate, setOrderDate, generatedId, customerCombo, customerDetails, handleCustomerCombo, itemCombo, itemDetails, handleItemCombo,
         buyQty, setBuyQty, cartItems, emptyStockError, disableAddToCart, handleAddToCart, total, setDiscount, subTotal, cash, balance, handleCash,
-        invalidCashError, disableBtnPurchase } = PlaceOrderController();
+        invalidCashError, disableBtnPurchase, btnClearAll } = PlaceOrderController();
     return (
         <main className="container-fluid">
             <Container className="d-flex flex-grow-1 flex-column">
@@ -123,7 +123,7 @@ export default function PlaceOrderPage() {
                 </Row>
                 {/* ClearAll Button*/}
                 <div className="d-grid col-6 col-md-2 mt-4 mb-2 mx-auto">
-                    <Button variant="danger" type="button">Clear All</Button>
+                    <Button variant="danger" type="button" onClick={btnClearAll}>Clear All</Button>
                 </div>
                 {/* PlaceOrder Table */}
                 <Row className="mt-1 mb-5 mt-md-2 mt-lg-3 justify-content-around">
