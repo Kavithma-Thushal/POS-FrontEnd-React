@@ -7,7 +7,7 @@ import PlaceOrderPage from "./pages/PlaceOrderPage";
 import OrderDetailsPage from "./pages/OrderDetailsPage";
 import Navigation from "./components/Navigation";
 
-axios.defaults.baseURL = 'http://localhost:8080/spring_pos/';
+axios.defaults.baseURL = 'http://localhost:8080/web_pos/';
 
 export default function App() {
     return (
