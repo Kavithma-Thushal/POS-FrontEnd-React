@@ -1,6 +1,6 @@
 # React POS Frontend
 ### Introduction
-Welcome to the React POS Frontend repository! This is my first impression of using React. This project marks my inaugural dive into React, a JavaScript library for building user interfaces. I tbought to create a modern and intuitive Point of Sale (POS) system using React, leveraging its component-based architecture and declarative approach to UI development
+Welcome to the React POS Frontend repository! This is my first impression of using React. This project marks my inaugural dive into React, a JavaScript library for building user interfaces. I tbought to create a modern and intuitive Point of Sale (POS) system using React, leveraging its component-based architecture and declarative approach to UI development.
 
 ### Getting Started
 To get started with this project, follow these steps:
