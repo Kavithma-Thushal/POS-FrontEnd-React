@@ -4,8 +4,6 @@ import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function PlaceOrderController() {
 
-    const baseUrl = "http://localhost:8080/spring_pos/";
-
     useEffect(() => {
         setDate();
         generateOrderId();
@@ -17,7 +15,7 @@ export function PlaceOrderController() {
     const [customerDetails, setCustomerDetails] = useState(null);
 
     const customerComboBox = () => {
-        axios.get(baseUrl + 'customer/loadAllCustomers')
+        axios.get('customer/loadAllCustomers')
             .then((resp) => {
                 setCustomerCombo(resp.data.data);
             })
@@ -36,7 +34,7 @@ export function PlaceOrderController() {
 
 
     const itemComboBox = () => {
-        axios.get(baseUrl + 'item/loadAllItems')
+        axios.get('item/loadAllItems')
             .then((resp) => {
                 setItemCombo(resp.data.data);
             })
@@ -52,8 +50,7 @@ export function PlaceOrderController() {
 
     const [generatedId, setGeneratedId] = useState('');
     const generateOrderId = () => {
-        const baseUrl = "http://localhost:8080/spring_pos/";
-        axios.get(baseUrl + 'orders/generateOrderId')
+        axios.get('orders/generateOrderId')
             .then((resp) => {
                 let generatedId = resp.data.value;
                 if (generatedId === null) {
@@ -174,7 +171,7 @@ export function PlaceOrderController() {
             "orderDetails": orderDetails
         };
 
-        axios.post(baseUrl + "orders", orderObj)
+        axios.post("orders", orderObj)
             .then(resp => {
                 successAlert("Order", resp.data.message);
                 generateOrderId();

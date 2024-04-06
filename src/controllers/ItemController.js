@@ -4,8 +4,6 @@ import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function ItemController() {
 
-    const baseUrl = "http://localhost:8080/spring_pos/";
-
     useEffect(() => {
         loadAllItems();
     }, []);
@@ -65,7 +63,7 @@ export function ItemController() {
         const isValidUnitPrice = regExItemUnitPrice.test(itemData.unitPrice);
 
         if (isValidCode && isValidDescription && isValidQty && isValidUnitPrice) {
-            axios.post(baseUrl + 'item', itemData)
+            axios.post('item', itemData)
                 .then((resp) => {
                     successAlert("Item", resp.data.message);
                     loadAllItems();
@@ -79,7 +77,7 @@ export function ItemController() {
     };
 
     const searchItem = () => {
-        axios.get(baseUrl + 'item/searchItem/' + searchItemByCode)
+        axios.get('item/searchItem/' + searchItemByCode)
             .then((resp) => {
                 setAllItems([]);
                 setAllItems([{
@@ -98,7 +96,7 @@ export function ItemController() {
     };
 
     const updateItem = () => {
-        axios.put(baseUrl + 'item', itemData)
+        axios.put('item', itemData)
             .then((resp) => {
                 successAlert("Item", resp.data.message);
                 loadAllItems();
@@ -109,7 +107,7 @@ export function ItemController() {
     };
 
     const deleteItem = () => {
-        axios.delete(baseUrl + 'item/' + itemData.code)
+        axios.delete('item/' + itemData.code)
             .then((resp) => {
                 successAlert("Item", resp.data.message);
                 loadAllItems();
@@ -120,7 +118,7 @@ export function ItemController() {
     };
 
     const loadAllItems = () => {
-        axios.get(baseUrl + 'item/loadAllItems')
+        axios.get('item/loadAllItems')
             .then((resp) => {
                 setAllItems(resp.data.data);
                 generateItemCode();
@@ -131,7 +129,7 @@ export function ItemController() {
     };
 
     const generateItemCode = () => {
-        axios.get(baseUrl + 'item/generateItemCode')
+        axios.get('item/generateItemCode')
             .then((resp) => {
                 let generatedId = resp.data.value;
                 if (generatedId === null) {

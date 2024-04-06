@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 
 export function OrderDetailsController() {
 
-    const baseUrl = "http://localhost:8080/spring_pos/";
-
     useEffect(() => {
         loadOrders();
         loadOrderDetails();
@@ -12,7 +10,7 @@ export function OrderDetailsController() {
 
     const [orders, setOrders] = useState([]);
     const loadOrders = () => {
-        axios.get(baseUrl + "orders/loadOrders")
+        axios.get('orders/loadOrders')
             .then(resp => {
                 setOrders(resp.data.data);
             })
@@ -23,7 +21,7 @@ export function OrderDetailsController() {
 
     const [orderDetails, setOrderDetails] = useState([]);
     const loadOrderDetails = () => {
-        axios.get(baseUrl + "orders/loadOrderDetails")
+        axios.get('orders/loadOrderDetails')
             .then(resp => {
                 setOrderDetails(resp.data.data);
             })

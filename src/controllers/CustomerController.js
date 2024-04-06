@@ -4,8 +4,6 @@ import { successAlert, errorAlert, emptyMessage } from '../util/Alert';
 
 export function CustomerController() {
 
-    const baseUrl = "http://localhost:8080/spring_pos/";
-
     useEffect(() => {
         loadAllCustomers();
     }, []);
@@ -65,7 +63,7 @@ export function CustomerController() {
         const isValidSalary = regExCusSalary.test(customerData.salary);
 
         if (isValidId && isValidName && isValidAddress && isValidSalary) {
-            axios.post(baseUrl + 'customer', customerData)
+            axios.post('customer', customerData)
                 .then((resp) => {
                     successAlert("Customer", resp.data.message);
                     loadAllCustomers();
@@ -79,7 +77,7 @@ export function CustomerController() {
     };
 
     const searchCustomer = () => {
-        axios.get(baseUrl + 'customer/searchCustomer/' + searchCusById)
+        axios.get('customer/searchCustomer/' + searchCusById)
             .then((resp) => {
                 setAllCustomers([]);
                 setAllCustomers([{
@@ -98,7 +96,7 @@ export function CustomerController() {
     };
 
     const updateCustomer = () => {
-        axios.put(baseUrl + 'customer', customerData)
+        axios.put('customer', customerData)
             .then((resp) => {
                 successAlert("Customer", resp.data.message);
                 loadAllCustomers();
@@ -109,7 +107,7 @@ export function CustomerController() {
     };
 
     const deleteCustomer = () => {
-        axios.delete(baseUrl + 'customer/' + customerData.id)
+        axios.delete('customer/' + customerData.id)
             .then((resp) => {
                 successAlert("Customer", resp.data.message);
                 loadAllCustomers();
@@ -120,7 +118,7 @@ export function CustomerController() {
     };
 
     const loadAllCustomers = () => {
-        axios.get(baseUrl + 'customer/loadAllCustomers')
+        axios.get('customer/loadAllCustomers')
             .then((resp) => {
                 setAllCustomers(resp.data.data);
                 generateCustomerId();
@@ -131,7 +129,7 @@ export function CustomerController() {
     };
 
     const generateCustomerId = () => {
-        axios.get(baseUrl + 'customer/generateCustomerId')
+        axios.get('customer/generateCustomerId')
             .then((resp) => {
                 let generatedId = resp.data.value;
                 if (generatedId === null) {

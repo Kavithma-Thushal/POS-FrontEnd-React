@@ -3,15 +3,13 @@ import axios from 'axios';
 
 export function HomeController() {
 
-    const baseUrl = "http://localhost:8080/spring_pos/";
-
     const [customerCount, setCustomerCount] = useState(0);
     const [itemCount, setItemCount] = useState(0);
     const [orderCount, setOrderCount] = useState(0);
 
     useEffect(() => {
 
-        axios.get(baseUrl + "customer/customerCount")
+        axios.get('customer/customerCount')
             .then(response => {
                 setCustomerCount(response.data.count);
             })
@@ -19,7 +17,7 @@ export function HomeController() {
                 console.log("Customer Count Error: ", error);
             });
 
-        axios.get(baseUrl + "item/itemCount")
+        axios.get('item/itemCount')
             .then(response => {
                 setItemCount(response.data.count);
             })
@@ -27,7 +25,7 @@ export function HomeController() {
                 console.log("Item Count Error: ", error);
             });
 
-        axios.get(baseUrl + "orders/ordersCount")
+        axios.get('orders/ordersCount')
             .then(response => {
                 setOrderCount(response.data.count);
             })
