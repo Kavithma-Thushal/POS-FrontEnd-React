@@ -38,6 +38,6 @@ I'd like to express my gratitude to the React community for their continuous sup
 
 #### This project is licensed under the [MIT License](LICENSE)
 
-#### © 2024 All Right Reserved, Designed By [Kavithma Thushal](https://github.com/Thushal2001)
+#### © 2024 All Right Reserved, Designed By [Kavithma Thushal](https://github.com/Kavithma-Thushal)
 
 </div>
